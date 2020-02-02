@@ -1,0 +1,32 @@
+.movie-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+    width: 483px;
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.movie-poster {
+    width: 185px;
+    height: 278px;
+}
+
+.movie-poster img {
+    height: 100%;
+}
+
+.movie-info {
+    width: 250px;
+    margin-left: 15px;
+    padding: 15px 5px 0;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.release-date {
+    opacity: .6;
+    margin-bottom: 25px;
+}
