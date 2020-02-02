@@ -5,6 +5,7 @@ import Movies from "./pages/Movies.js";
 import Shows from "./pages/Shows.js";
 import People from "./pages/People.js";
 import Home from "./pages/Home.js";
+import TopRatedMovies from './pages/TopRatedMovies.js';
 
 function App() {
 
@@ -27,17 +28,20 @@ function App() {
           <li className="nav-item"><NavLink to="/people">People</NavLink></li>
         </ul>
         <ul className="nav movie-nav">
-          <li className="nav-item"><NavLink to="/movies/top-rated">Popular</NavLink></li>
+          <li className="nav-item"><NavLink to="/movies/popular">Popular</NavLink></li>
           <li className="nav-item"><NavLink to="/movies/top-rated">Top Rated</NavLink></li>
           <li className="nav-item"><NavLink to="/movies/top-rated">Upcoming</NavLink></li>
           <li className="nav-item"><NavLink to="/movies/top-rated">Now Playing</NavLink></li>
         </ul>
       </header>
-
+      
       <Route exact path="/" component={Home}/>
       <Route exact path="/movies" component={Movies}/>
       <Route exact path="/shows" component={Shows}/>
       <Route exact path="/people" component={People}/>
+      <Route exact path="/movies/popular" component={Movies}/>
+      <Route exact path="/movies/top-rated" component={TopRatedMovies}/>
+      
 
     </div>
     </BrowserRouter>
