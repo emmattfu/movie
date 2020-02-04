@@ -54,12 +54,17 @@ blockquote {
 
 /* Header Styles */
 .App-header {
+  background-color: #081C24;
+}
+
+.header-container {
   padding: 15px;
   display: flex;
-  background-color: #081C24;
+  max-width: 1000px;
   color: white;
   align-items: center;
   justify-content: space-between;
+  margin: auto;
 }
 
 .container {
@@ -70,7 +75,7 @@ blockquote {
 
 .nav {
   display: flex;
-  margin-right: 50px;
+  margin-right: 100px;
 }
 
 .nav .nav-item + .nav-item {
@@ -112,7 +117,11 @@ blockquote {
   position: absolute;
   width: 300px;
   display: none;
-  padding: 5px;
+  margin-top: 10px;
+}
+
+.movie-nav li + li {
+  margin-right: 5px;
 }
 
 .nav .nav-item:hover .movie-nav {

@@ -21,7 +21,7 @@ function MovieComponent({ movies, loading, api }) {
             </div>
             <div className="movie-info">
               <p className="title">{movie.title}</p>
-              <p className="release-date">{movie.release_date}</p>
+              <p className="release-date">{new Date(movie.release_date).toLocaleDateString()}</p>
               <p className="overview">{movie.overview.length < 350 ? movie.overview: movie.overview.slice(0,350) + '...'}</p>
               
             </div>

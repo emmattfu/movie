@@ -25,6 +25,7 @@ function App() {
     <BrowserRouter>
     <div className="App">
       <header className="App-header">
+        <div className="header-container">
         <h2><NavLink to="/">The Movie App</NavLink></h2>
         <ul className="nav">
           <li onMouseOver={mouseOverHandle} onMouseOut={mouseOutHandle} className="nav-item"><NavLink to="/movies">MOVIES</NavLink>
@@ -45,6 +46,8 @@ function App() {
           </li>
           <li className="nav-item"><NavLink to="/people">People</NavLink></li>
         </ul>
+        </div>
+        
         
       </header>
       
