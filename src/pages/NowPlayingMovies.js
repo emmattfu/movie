@@ -1,21 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import api from '../Api.js';
-import ShowComponent from "../components/ShowComponent.js";
+import MovieComponent from "../components/MovieComponent/MovieComponent.js";
 
 
 const API = api();
 
-function Shows() {
-  const [shows, setShows] = useState([]);
+function NowPlayingMovies() {
+  const [upcomingMovies, setUpcomingMovies] = useState('');
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true)
-    fetch(`${API.name}/tv/popular?api_key=${API.key}&language=en-US&page=1`)
+    fetch(`${API.name}/movie/now_playing?api_key=${API.key}&language=en-US&page=1`)
     .then(resp => resp.json())
     .then(resp => {
       console.log(resp)
-      setLoading(true)
-      setShows(Array.from(resp.results))
+      setUpcomingMovies(resp.results)
       setLoading(false) 
     })
   }, [])
@@ -23,13 +22,14 @@ function Shows() {
     return (
         <>
           <div className="container">
-            <h1>Shows</h1>
+            <h1>Now Playing</h1>
             <div className="content-wrapper">
-              {shows.map(show => <ShowComponent key={show.id} show={show} loading={loading}/>)}
+              
+          <MovieComponent movies={upcomingMovies} loading={loading} api={api} />
             </div>
           </div>
         </>
       );
 }
 
-export default Shows
+export default NowPlayingMovies

@@ -1,6 +1,10 @@
 import React from 'react';
 
-function ShowComponent({show}) {
+function ShowComponent({show, loading}) {
+  
+    if (loading) {
+      return <h1>Loading...</h1>
+    }
 
     return (
         <>
