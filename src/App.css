@@ -58,13 +58,13 @@ blockquote {
 }
 
 .header-container {
-  padding: 15px;
   display: flex;
   max-width: 1000px;
   color: white;
   align-items: center;
   justify-content: space-between;
   margin: auto;
+  height: 100px;
 }
 
 .container {
@@ -78,29 +78,30 @@ blockquote {
   margin-right: 100px;
 }
 
-.nav .nav-item + .nav-item {
+.nav .nav-item-main + .nav-item-main {
   margin-left: 10px;
-  
 }
 
-.nav-item {
+.nav-item,
+.nav-item-main {
   cursor: pointer;
   position: relative;
+  padding: 10px 0;
 }
 
-.nav-item:after {
+.nav-item-main:after {
   content: "";
   width: 0;
   display: block;
   height: 2px;
   background-color: white;
   position: absolute;
-  bottom: -5px;
+  bottom: 2px;
   left: 0;
   transition: width .2s linear;
 }
 
-.nav-item:hover:after {
+.nav-item-main:hover:after {
   width: 100%;
 }
 
@@ -117,13 +118,13 @@ blockquote {
   position: absolute;
   width: 300px;
   display: none;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .movie-nav li + li {
-  margin-right: 5px;
+  margin-left: 10px;
 }
 
-.nav .nav-item:hover .movie-nav {
+.nav .nav-item-main:hover .movie-nav {
   display: flex;
 }
