@@ -1,8 +1,7 @@
 import React from "react";
-import './Movies.css';
-import api from "../Api.js";
+import api from "../../Api.js";
 import { useState, useEffect } from "react";
-import MovieComponent from "../components/MovieComponent/MovieComponent.js";
+import MovieComponent from "../../components/MovieComponent/MovieComponent.js";
 
 const API = api();
 
@@ -18,7 +17,7 @@ function Movies() {
         setLoading(false);
       });
   }, []);
-  console.log(movies);
+
 
   return (
     <>

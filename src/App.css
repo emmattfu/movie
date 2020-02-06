@@ -128,3 +128,19 @@ blockquote {
 .nav .nav-item-main:hover .movie-nav {
   display: flex;
 }
+
+.movies-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.people-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.people-wrapper img {
+  width: 235px;
+  height: 235px;
+}

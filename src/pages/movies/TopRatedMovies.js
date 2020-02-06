@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import api from '../Api.js';
-import MovieComponent from "../components/MovieComponent/MovieComponent.js";
+import api from '../../Api.js';
+import MovieComponent from "../../components/MovieComponent/MovieComponent.js";
 
 
 const API = api();
