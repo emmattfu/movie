@@ -22,9 +22,10 @@ function People() {
                 return (
                   <div className="people-card" key={elem.id}>
                     <div className="people-poster">
-                     <img src={`https://image.tmdb.org/t/p/original/${elem.profile_path}`}></img>
+                     <img src={`https://image.tmdb.org/t/p/original/${elem.profile_path}`}  alt='popular-people'></img>
                     </div>
-                <p>{people.name}</p>
+                    <p className="people-name">{elem.name}</p>
+                {/* <p>{elem.known_for[0]}</p> */}
                   </div>
                 )
               })}

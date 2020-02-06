@@ -138,9 +138,29 @@ blockquote {
 .people-wrapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.people-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+  margin-bottom: 20px;
+ 
+}
+
+.people-poster {
+  width: 235px;
+  height: 270px;
 }
 
 .people-wrapper img {
   width: 235px;
-  height: 235px;
+  height: 270px;
+  object-fit: cover;
+ 
+}
+
+.people-name {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 5px 0;
 }

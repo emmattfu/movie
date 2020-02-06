@@ -1,5 +1,6 @@
 import React from "react";
 import "./MovieComponent.css";
+import {NavLink} from 'react-router-dom'
 
 function MovieComponent({ movies, loading, api }) {
   const moviesArr = Array.from(movies);
@@ -14,10 +15,12 @@ function MovieComponent({ movies, loading, api }) {
         return (
           <div className="movie-card" key={movie.id}>
             <div className="movie-poster">
+              <NavLink to={`${movie.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                 alt="poster"
               />
+              </NavLink>
             </div>
             <div className="movie-info">
               <p className="title">{movie.title}</p>
