@@ -164,3 +164,56 @@ blockquote {
   font-size: 16px;
   margin: 5px 0;
 }
+
+.details-bg {
+  max-height: 550px;
+  position: absolute;
+  background: #000;
+}
+
+.details-bg img {
+  height: 550px;
+  width: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  opacity: .7;
+}
+
+.details-wrapper {
+  display: flex;
+  position: relative;
+  padding: 45px 0;
+}
+
+.details-poster {
+  display: contents;
+}
+
+.details-poster img {
+  width: 30%;
+}
+
+.details {
+  display: flex;
+}
+
+.details-content {
+  color: white;
+  margin-left: 40px;
+}
+
+.details-name {
+  font-size: 50px;
+  margin: 0 0 40px;
+}
+
+.details-overview {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.details-overview-text {
+  font-size: 15px;
+  line-height: 20px;
+}

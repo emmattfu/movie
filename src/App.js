@@ -29,7 +29,7 @@ function App() {
         <Route exact path="/movies/top-rated" component={TopRatedMovies} />
         <Route exact path="/movies/upcoming" component={UpcomingMovies} />
         <Route exact path="/movies/now-playing" component={NowPlayingMovies} />
-        <Route exact path="/movies/:id" component={MovieDetails} />
+        <Route exact path="/movies/details/:id" component={MovieDetails} />
         <Route exact path="/shows/popular" component={Shows} />
         <Route exact path="/shows/on-tv" component={OnTVShows} />
         <Route exact path="/shows/airing-today" component={AiringTodayShows} />

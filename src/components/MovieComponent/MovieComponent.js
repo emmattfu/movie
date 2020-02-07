@@ -15,7 +15,7 @@ function MovieComponent({ movies, loading, api }) {
         return (
           <div className="movie-card" key={movie.id}>
             <div className="movie-poster">
-              <NavLink to={`${movie.id}`}>
+              <NavLink to={`/movies/details/${movie.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                 alt="poster"
