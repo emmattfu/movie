@@ -4,11 +4,19 @@
   outline: none;
 }
 
+html {
+
+  height: 100%;
+}
+
 body{
   margin: 0;
   padding: 0;
   font: 400 14px/1 'Roboto', sans-serif;
   background-color: #fff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -169,6 +177,7 @@ blockquote {
   max-height: 550px;
   position: absolute;
   background: #000;
+  width: 100%;
 }
 
 .details-bg img {
@@ -207,13 +216,78 @@ blockquote {
   margin: 0 0 40px;
 }
 
-.details-overview {
+.details-header {
   font-weight: bold;
   font-size: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
-.details-overview-text {
+.details-text {
   font-size: 15px;
   line-height: 20px;
+}
+
+.details-text.big {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.footer {
+  background-color: #081C24;
+  height: 100px;
+  color: white;
+  flex: 0 0 auto;
+}
+
+.footer-iner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.footer-iner p + p {
+  margin-top: 5px;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column  ;
+}
+
+.credits {
+  display: flex;
+}
+
+.credits .credits-screenplay {
+  margin-left: 120px;
+}
+
+.details-header.featured {
+  margin-top: 30px;
+}
+
+.cast {
+  margin: 40px 0;
+}
+
+.cast-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cast-card {
+  width: 150px;
+}
+
+.cast-name {
+  font-weight: bold;
+  font-size: 15px;
+  margin: 10px 0;
 }

@@ -20,7 +20,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <HeaderComponent />
-
+        <div className="content">
         <Route exact path="/" component={Home} />
         <Route exact path="/movies" component={Movies} />
         <Route exact path="/shows" component={Shows} />
@@ -34,6 +34,17 @@ function App() {
         <Route exact path="/shows/on-tv" component={OnTVShows} />
         <Route exact path="/shows/airing-today" component={AiringTodayShows} />
         <Route exact path="/shows/top-rated" component={TopRatedShows} />
+        </div>
+ 
+
+        <footer className="footer">
+  
+            <div className="footer-iner">
+            <p>This app was made for studying</p>
+            <p>Big thanks for Api to <a href="https://www.themoviedb.org">https://www.themoviedb.org</a></p>
+            </div>
+
+        </footer>
       </div>
     </BrowserRouter>
   );
