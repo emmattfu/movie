@@ -152,7 +152,7 @@ blockquote {
 .people-card {
   box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
   margin-bottom: 20px;
- 
+  width: 235px;
 }
 
 .people-poster {
@@ -209,6 +209,9 @@ blockquote {
 .details-content {
   color: white;
   margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+ 
 }
 
 .details-name {
@@ -269,6 +272,10 @@ blockquote {
   margin-left: 120px;
 }
 
+.credits-director.creator {
+  margin-right: 45px;
+}
+
 .details-header.featured {
   margin-top: 30px;
 }
@@ -284,10 +291,49 @@ blockquote {
 
 .cast-card {
   width: 150px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+  padding-bottom: 10px;
+}
+
+.cast-info {
+  padding: 10px;
 }
 
 .cast-name {
   font-weight: bold;
   font-size: 15px;
   margin: 10px 0;
+}
+
+.social {
+  margin-top: 30px;
+}
+
+.social-icon {
+  width: 30px;
+  cursor: pointer;
+  background: white;
+  border-radius: 5px;
+}
+
+.social a + a {
+  margin-left: 10px;
+}
+
+.details-release-date {
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.search-form input {
+  padding: 10px 0;
+  width: 100%;
+}
+
+.people-info {
+  padding: 10px;
+}
+
+.people-known-for {
+  margin-bottom: 5px;
 }

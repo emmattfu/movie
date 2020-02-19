@@ -13,7 +13,6 @@ function Shows() {
     fetch(`${API.name}/tv/popular?api_key=${API.key}&language=en-US&page=1`)
     .then(resp => resp.json())
     .then(resp => {
-      console.log(resp)
       setLoading(true)
       setShows(Array.from(resp.results))
       setLoading(false) 
