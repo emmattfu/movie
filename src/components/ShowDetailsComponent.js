@@ -26,7 +26,12 @@ function ShowDetailsComponent({ show, accounts}) {
             </div>
             
             <CreditsComponent credits={show.created_by} type="show"/>
-            <SocialComponent accounts={accounts} homepage={show.homepage} />
+            
+            <div className="social">
+              <p className="details-header">Social media</p>
+              <SocialComponent accounts={accounts} homepage={show.homepage} />
+            </div>
+
           </div>
         </div>
       </div>

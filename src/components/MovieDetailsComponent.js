@@ -36,7 +36,11 @@ function MovieDetailsComponent({ movie, accounts, director, screenplay}) {
               </div>
             </div>
 
-            <SocialComponent accounts={accounts} homepage={movie.homepage} />
+            <div className="social">
+              <p className="details-header">Social media</p>
+              <SocialComponent accounts={accounts} homepage={movie.homepage} />
+            </div>
+            
           </div>
         </div>
       </div>

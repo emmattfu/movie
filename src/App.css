@@ -337,3 +337,97 @@ blockquote {
 .people-known-for {
   margin-bottom: 5px;
 }
+
+.people-details {
+  display: flex;
+  margin-top: 40px;
+  padding: 10px 0;
+}
+
+.people-details-aside {
+  width: 300px;
+  background-color: #F1F1F1;
+}
+
+.people-details-content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.people-details-content {
+  margin-left: 40px;
+  width: 700px;
+}
+
+.sub-info {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.people-details-personal-info {
+  padding: 0 0 0 10px;
+}
+
+.people-details-personal-info .sub-info + .sub-info {
+  margin-top: 20px;
+}
+
+.people-details-social a + a {
+  margin-left: 10px;
+}
+
+.sub-info-text{
+   display: block;
+   font-weight: normal;
+   margin-top: 5px;
+   font-size: 14px;
+}
+
+.sub-info-text a:hover {
+  color: #00D59A;
+}
+
+.also-known-as li {
+  padding-bottom: 5px;
+}
+
+.people-details-content-title {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.people-details-content-biography {
+  line-height: 1.4;
+  font-size: 15px;
+}
+
+.biography-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.filmed-in {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.filmed-in-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.filmed-in-card {
+  width: 22%;
+  margin-bottom: 10px;
+}
+
+.filmed-in-card-text {
+  text-align: center;
+  padding: 10px 5px;
+}

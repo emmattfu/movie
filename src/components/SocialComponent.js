@@ -6,8 +6,8 @@ import homepage_icon from "../icons/homepage.svg";
 
 function SocialComponent({accounts, homepage}) {
   return (
-    <div className="social">
-      <p className="details-header">Social media</p>
+    <>
+      {!accounts.facebook_id ? '' : 
       <a
         href={`http://facebook.com/${accounts.facebook_id}`}
         title="Visit Facebook"
@@ -15,7 +15,9 @@ function SocialComponent({accounts, homepage}) {
         rel="noopener noreferrer"
       >
         <img className="social-icon" src={facebook} alt="facebook-icon"></img>
-      </a>
+      </a>}
+
+      {!accounts.twitter_id ? '' : 
       <a
         href={`http://twitter.com/${accounts.twitter_id}`}
         title="Visit Twitter"
@@ -23,7 +25,9 @@ function SocialComponent({accounts, homepage}) {
         rel="noopener noreferrer"
       >
         <img className="social-icon" src={twitter} alt="twitter-icon"></img>
-      </a>
+      </a>}
+
+      {!accounts.instagram_id ? '' : 
       <a
         href={`http://instagram.com/${accounts.instagram_id}`}
         title="Visit Instagram"
@@ -31,7 +35,9 @@ function SocialComponent({accounts, homepage}) {
         rel="noopener noreferrer"
       >
         <img className="social-icon" src={instagram} alt="instagram-icon"></img>
-      </a>
+      </a>}
+
+      {!homepage ? '' : 
       <a
         href={homepage}
         title="Visit Homepage"
@@ -39,8 +45,9 @@ function SocialComponent({accounts, homepage}) {
         rel="noopener noreferrer"
       >
         <img className="social-icon" src={homepage_icon} alt="homepage-icon"></img>
-      </a>
-    </div>
+      </a>}
+     
+    </>
   );
 }
 

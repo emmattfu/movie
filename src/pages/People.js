@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {NavLink} from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import api from "../Api";
 
 const API = api();
@@ -21,8 +21,6 @@ function People() {
     );
   }
 
-  console.log(people[2].known_for[0]);
-
   return (
     <>
       <div className="container">
@@ -32,24 +30,29 @@ function People() {
             return (
               <div className="people-card" key={elem.id}>
                 <div className="people-poster">
-                <NavLink to={`/people/details/${elem.id}`}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/original/${elem.profile_path}`}
-                    alt="popular-people"
-                  ></img>
-                </NavLink>
+                  <NavLink to={`/people/details/${elem.id}`}>
+                    <img
+                      src={`https://image.tmdb.org/t/p/original/${elem.profile_path}`}
+                      alt="popular-people"
+                    ></img>
+                  </NavLink>
                 </div>
                 <div className="people-info">
                   <p className="people-name">{elem.name}</p>
-                  {elem.known_for.map(film => {
-                    return !film.title || film.title.length < 28 ? (
-                      <p className="people-known-for">
-                        {film.title || film.original_name}
-                      </p>
-                    ) : (
-                      <p className="people-known-for">
-                        {film.title.slice(0, 28) + "..." || film.original_name}
-                      </p>
+                  {elem.known_for.map((film, i) => {
+                    return (
+                      <div key={i}>
+                        {!film.title || film.title.length < 28 ? (
+                          <p className="people-known-for">
+                            {film.title || film.original_name}
+                          </p>
+                        ) : (
+                          <p className="people-known-for">
+                            {film.title.slice(0, 28) + "..." ||
+                              film.original_name}
+                          </p>
+                        )}
+                      </div>
                     );
                   })}
                 </div>
@@ -63,5 +66,3 @@ function People() {
 }
 
 export default People;
-
-

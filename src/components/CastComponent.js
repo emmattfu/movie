@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 function CastComponent({ cast, type }) {
   
@@ -12,10 +13,12 @@ function CastComponent({ cast, type }) {
              
               return (
                 <div className="cast-card" key={el.id}>
+                  <Link to={`/people/details/${el.id}`}>
                   <img
                     src={`https://image.tmdb.org/t/p/original/${el.profile_path}`}
                     alt="actor-img"
                   ></img>
+                  </Link>
                   <div className="cast-info">
                   <p className="cast-name">{el.name}</p>
                   <p>{el.character}</p>
