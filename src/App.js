@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 
@@ -18,13 +18,19 @@ import People from "./pages/People.js";
 import PeopleDetails from "./pages/people/PeopleDetails.js"
 import HeaderComponent from "./components/HeaderComponent";
 import SearchComponent from "./components/SearchComponent.js";
+import Search from './pages/Search';
+import searchContext from './contexts/searchContext';
+
 
 function App() {
+  const [search, setSearch] = useState(null)
+
   return (
+    <searchContext.Provider value={[search, setSearch]}>
     <BrowserRouter>
       <div className="App">
         <HeaderComponent />
-        {/* <SearchComponent /> */}
+        <SearchComponent />
         <div className="content">
           <Route exact path="/" component={Home} />
           <Route exact path="/movies" component={Movies} />
@@ -41,6 +47,7 @@ function App() {
           <Route exact path="/shows/top-rated" component={TopRatedShows} />
           <Route exact path="/shows/details/:id" component={ShowDetails} />
           <Route exact path="/people/details/:id" component={PeopleDetails} />
+          <Route exact path="/search" component={Search} />
         </div>
  
         <footer className="footer">
@@ -51,6 +58,7 @@ function App() {
         </footer>
       </div>
     </BrowserRouter>
+    </searchContext.Provider>
   );
 }
 

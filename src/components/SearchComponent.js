@@ -1,26 +1,23 @@
-import React, {useState, useEffect, useRef} from "react";
-import api from '../Api.js'
+import React, {useState, useRef, useContext} from "react";
+import {Redirect} from 'react-router-dom';
+import searchContext from '../contexts/searchContext.js';
 
-const API = api();
 
 function SearchComponent() {
   const inputRef = useRef();
-  
-  const [value, setValue] = useState('');
-
-  useEffect(() => {
-    fetch(`${API.name}/search/person?api_key=${API.key}?query=${value}&language=en-US`)
-    .then(resp => resp.json())
-    .then(resp => console.log(resp))
-  }, [value])
+  const [count, setCount] = useState(0)
+  const [redirect, setRedirect] = useState(false);
+  const setSearch = useContext(searchContext)[1]
 
   function submitHandle(e) {
     e.preventDefault();
-    setValue(inputRef.current.value);
+    setSearch(inputRef.current.value)
+    setRedirect(true)
+    setCount(count + 1)
   }
 
   return (
-    <div className="search">
+    <div className="search" key={count}>
       <div className="container">
         <form className="search-form" onSubmit={submitHandle}>
           <input
@@ -30,6 +27,7 @@ function SearchComponent() {
           />
         </form>
       </div>
+      {redirect ? <Redirect to="/search"/> : ''}
     </div>
   );
 }

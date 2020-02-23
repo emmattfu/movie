@@ -6,12 +6,23 @@ const API = api();
 
 function People() {
   const [people, setPeople] = useState("");
-
+  const [page, setPage] = useState(1)
+  const pages = [];
   useEffect(() => {
-    fetch(`${API.name}/person/popular?api_key=${API.key}&language=en-US&page=1`)
+    fetch(`${API.name}/person/popular?api_key=${API.key}&language=en-US&page=${page}`)
       .then(resp => resp.json())
-      .then(resp => setPeople(resp.results));
-  }, []);
+      .then(resp => {
+        setPeople(resp.results)
+      });
+  }, [page]);
+
+  for (let i = 1; i <= 100; i++) {
+    pages.push(i)
+  }
+
+  function selectPage(event) {
+    setPage(event.target.value)
+  }
 
   if (!people) {
     return (
@@ -24,7 +35,14 @@ function People() {
   return (
     <>
       <div className="container">
-        <h1>Popular People</h1>
+        <div className="page-header">
+          <h1>Popular People</h1>
+          <div>Page:  
+            <select name="page-number" onChange={selectPage}>
+              {pages.map(el => <option key={el}>{el}</option>)}
+            </select></div>
+        </div>
+        
         <div className="people-wrapper">
           {people.map(elem => {
             return (

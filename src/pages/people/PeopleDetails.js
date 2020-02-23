@@ -34,7 +34,6 @@ function PeopleDetails({ match }) {
     )
       .then(resp => resp.json())
       .then(resp => {
-        console.log(resp);
         setMovies(resp);
       });
   }, [id]);
@@ -115,8 +114,10 @@ function PeopleDetails({ match }) {
             <p className="people-details-content-biography">
               {actor.biography ? actor.biography : `We don't have a biography for ${actor.name}`}
             </p>
-
+            
             <p className="filmed-in-title">Known For</p>
+            {!movies.cast.length ? "We don't have this info" :  <div>
+            
             <div className="filmed-in">
               {filteredMovies.slice(0, 8).map(el => {
                 return (
@@ -132,6 +133,8 @@ function PeopleDetails({ match }) {
                 );
               })}
             </div>
+            </div>}
+           
           </div>
         </div>
       </div>
