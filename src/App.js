@@ -17,6 +17,7 @@ import ShowDetails from "./pages/tv/ShowDetails.js";
 import People from "./pages/People.js";
 import PeopleDetails from "./pages/people/PeopleDetails.js"
 import HeaderComponent from "./components/HeaderComponent";
+import FooterComponent from './components/FooterComponent.js';
 import SearchComponent from "./components/SearchComponent.js";
 import Search from './pages/Search';
 import searchContext from './contexts/searchContext';
@@ -49,13 +50,9 @@ function App() {
           <Route exact path="/people/details/:id" component={PeopleDetails} />
           <Route exact path="/search" component={Search} />
         </div>
- 
-        <footer className="footer">
-          <div className="footer-iner">
-          <p>This app was made for studying</p>
-          <p>Big thanks for Api to <a href="https://www.themoviedb.org">https://www.themoviedb.org</a></p>
-          </div>
-        </footer>
+
+        <FooterComponent />
+        
       </div>
     </BrowserRouter>
     </searchContext.Provider>
