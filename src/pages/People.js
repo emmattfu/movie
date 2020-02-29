@@ -43,13 +43,14 @@ function People() {
             </select></div>
         </div>
         
-        <div className="people-wrapper">
+        <div className="content-wrapper">
           {people.map(elem => {
             return (
               <div className="people-card" key={elem.id}>
                 <div className="people-poster">
                   <NavLink to={`/people/details/${elem.id}`}>
                     <img
+                      className="people-img"
                       src={`https://image.tmdb.org/t/p/original/${elem.profile_path}`}
                       alt="popular-people"
                     ></img>

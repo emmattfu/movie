@@ -30,9 +30,11 @@ function Search() {
 
     return (
       <div className="container">
-        <h2>Search results</h2>
+        <div className="page-header">
+          <h1>Search results</h1>
+        </div>
         <div className="search-result">
-        {result.map(el => <SearchCardComponent item={el}></SearchCardComponent>)}
+        {result.map(el => <SearchCardComponent key={el.id} item={el}></SearchCardComponent>)}
         </div>
        
       </div>
