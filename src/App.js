@@ -21,6 +21,7 @@ import FooterComponent from './components/FooterComponent.js';
 import SearchComponent from "./components/SearchComponent.js";
 import Search from './pages/Search';
 import searchContext from './contexts/searchContext';
+import Other from "./components/Other";
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
         <HeaderComponent />
         <SearchComponent />
         <div className="content">
-          <Route exact path="/home" component={Home} />
+          <Route exact path="/" component={Home} />
           <Route exact path="/movies" component={Movies} />
           <Route exact path="/shows" component={Shows} />
           <Route exact path="/people" component={People} />
@@ -49,6 +50,7 @@ function App() {
           <Route exact path="/shows/details/:id" component={ShowDetails} />
           <Route exact path="/people/details/:id" component={PeopleDetails} />
           <Route exact path="/search" component={Search} />
+          <Route exact component={Other} /> 
         </div>
 
         <FooterComponent />
