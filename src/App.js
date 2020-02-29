@@ -32,7 +32,7 @@ function App() {
         <HeaderComponent />
         <SearchComponent />
         <div className="content">
-          <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/movies" component={Movies} />
           <Route exact path="/shows" component={Shows} />
           <Route exact path="/people" component={People} />
