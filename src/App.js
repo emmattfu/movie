@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 
-import Home from "./pages/home/Home.js";
+import Home from "./pages/Home.js";
 import Movies from "./pages/movies/Movies.js";
 import TopRatedMovies from "./pages/movies/TopRatedMovies.js";
 import UpcomingMovies from "./pages/movies/UpcomingMovies.js";
