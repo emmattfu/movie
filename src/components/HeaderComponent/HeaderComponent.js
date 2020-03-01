@@ -1,8 +1,10 @@
 import React from "react";
-import Nav from './NavComponent.js';
+import "./HeaderComponent.css";
+import Nav from "../NavComponent.js";
 import { NavLink } from "react-router-dom";
 
 function HeaderComponent() {
+
   return (
     <>
       <header className="App-header">

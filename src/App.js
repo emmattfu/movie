@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 
-import Home from "./pages/Home.js";
+import Home from "./pages/home/Home.js";
 import Movies from "./pages/movies/Movies.js";
 import TopRatedMovies from "./pages/movies/TopRatedMovies.js";
 import UpcomingMovies from "./pages/movies/UpcomingMovies.js";
@@ -16,8 +16,8 @@ import TopRatedShows from "./pages/tv/TopRatedShows.js";
 import ShowDetails from "./pages/tv/ShowDetails.js";
 import People from "./pages/People.js";
 import PeopleDetails from "./pages/people/PeopleDetails.js"
-import HeaderComponent from "./components/HeaderComponent";
-import FooterComponent from './components/FooterComponent.js';
+import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
+import FooterComponent from './components/FooterComponent/FooterComponent.js';
 import SearchComponent from "./components/SearchComponent.js";
 import Search from './pages/Search';
 import searchContext from './contexts/searchContext';

@@ -1,0 +1,104 @@
+.home-content-header {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  
+  .home-content {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    margin: 10px 0;
+  }
+  
+  .home-tv-posters,
+  .home-movies-posters {
+    display: grid;
+  }
+  
+  .home-poster {
+    margin-bottom: -3px;
+  }
+  
+  .home-poster#id_0 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  
+  .home-poster#id_5 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  
+  .home-poster {
+    position: relative;
+  }
+  
+  .home-poster-text {
+    position: absolute;
+    color: white;
+    font-weight: 500;
+    bottom: 10px;
+    left: 10px;
+  }
+  
+  .home-top {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    color: white;
+    height: 100px;
+    margin-bottom: 20px;
+  }
+  
+  .home-top .left {
+    background-color:#0F1F2F;
+  }
+  
+  .home-top .right {
+    background-color: #FCBAEC;
+  }
+  
+  .home-top-text {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .home-top-text h2 {
+    margin-bottom: 5px;
+    font-size: 25px;
+  }
+  
+  /*===== Media =====*/
+  @media (max-width: 768px) {
+    .home-tv-posters,
+    .home-movies-posters {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  
+    .home-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin: 10px 0;
+    }
+  
+    .home-poster#id_0,
+    .home-poster#id_5
+     {
+      grid-column: 1;
+    }
+    
+    .home-tv {
+      margin-bottom: 20px;
+    }
+  
+    .home-poster-text {
+      font-size: 18px;
+    }
+  
+    .home-content-header {
+      font-size: 24px;
+    }
+  }
