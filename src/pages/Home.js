@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './Home.css';
-import api from "../../Api.js";
+import api from "../Api.js";
 import { Link } from "react-router-dom";
 
 const API = api();
