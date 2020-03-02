@@ -1,6 +1,6 @@
 {
   "name": "movie",
-  "homepage": "https://emmattfu.github.io/movie/",
+  "homepage": "https://emmattfu.github.io/movie",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
