@@ -9,9 +9,12 @@ function MovieComponent({ movies, loading, api }) {
     return <h2>Loading...</h2>;
   }
 
+  console.log()
+
   return (
     <>
-      {moviesArr.map(movie => {
+      {window.innerWidth > 1000 ? 
+      moviesArr.map(movie => {
         return (
           <div className="movie-card" key={movie.id}>
             <div className="movie-poster">
@@ -30,7 +33,49 @@ function MovieComponent({ movies, loading, api }) {
             </div>
           </div>
         );
+      }) : moviesArr.map(movie => {
+        return (
+          <div className="movie-card" key={movie.id}>
+             <div className="movie-poster">
+              <NavLink to={`/movies/details/${movie.id}`}>
+              <img
+                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                alt="poster"
+              />
+              </NavLink>
+            </div>
+            <div className="movie-info">
+              <p className="title">{movie.title}</p>
+              <p className="release-date">{new Date(movie.release_date).toLocaleDateString()}</p>
+            
+            </div>
+          </div>
+        )
       })}
+
+
+
+
+      {/* {moviesArr.map(movie => {
+        return (
+          <div className="movie-card" key={movie.id}>
+            <div className="movie-poster">
+              <NavLink to={`/movies/details/${movie.id}`}>
+              <img
+                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                alt="poster"
+              />
+              </NavLink>
+            </div>
+            <div className="movie-info">
+              <p className="title">{movie.title}</p>
+              <p className="release-date">{new Date(movie.release_date).toLocaleDateString()}</p>
+              <p className="overview">{movie.overview.length < 350 ? movie.overview: movie.overview.slice(0,350) + '...'}</p>
+              
+            </div>
+          </div>
+        );
+      })} */}
     </>
   );
 }

@@ -30,3 +30,21 @@
     opacity: .6;
     margin-bottom: 25px;
 }
+
+/*===== Media =====*/
+
+@media (max-width: 1199px) {
+    .movie-card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .movie-poster {
+        width: 100%;
+    }
+
+    .movie-card {
+        flex-direction: column;
+    }
+}
