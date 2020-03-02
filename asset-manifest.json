@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/movie/static/css/main.251e5fb4.chunk.css",
+    "main.js": "/movie/static/js/main.741681ca.chunk.js",
+    "main.js.map": "/movie/static/js/main.741681ca.chunk.js.map",
+    "runtime-main.js": "/movie/static/js/runtime-main.944e89b7.js",
+    "runtime-main.js.map": "/movie/static/js/runtime-main.944e89b7.js.map",
+    "static/js/2.3356949c.chunk.js": "/movie/static/js/2.3356949c.chunk.js",
+    "static/js/2.3356949c.chunk.js.map": "/movie/static/js/2.3356949c.chunk.js.map",
+    "index.html": "/movie/index.html",
+    "precache-manifest.94ef098c37f765f12e60e400551dcba7.js": "/movie/precache-manifest.94ef098c37f765f12e60e400551dcba7.js",
+    "service-worker.js": "/movie/service-worker.js",
+    "static/css/main.251e5fb4.chunk.css.map": "/movie/static/css/main.251e5fb4.chunk.css.map",
+    "static/js/2.3356949c.chunk.js.LICENSE.txt": "/movie/static/js/2.3356949c.chunk.js.LICENSE.txt",
+    "static/media/facebook.svg": "/movie/static/media/facebook.422e7665.svg",
+    "static/media/homepage.svg": "/movie/static/media/homepage.3bece275.svg",
+    "static/media/instagram-social-network-logo-of-photo-camera.svg": "/movie/static/media/instagram-social-network-logo-of-photo-camera.3cc0081d.svg",
+    "static/media/twitter.svg": "/movie/static/media/twitter.c95cbd88.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.944e89b7.js",
+    "static/js/2.3356949c.chunk.js",
+    "static/css/main.251e5fb4.chunk.css",
+    "static/js/main.741681ca.chunk.js"
+  ]
+}
