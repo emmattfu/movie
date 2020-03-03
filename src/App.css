@@ -393,6 +393,13 @@ blockquote {
   height: 365px;
 }
 
+
+@media(max-width: 1199px) {
+  .search-result {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 @media (max-width: 991px) {
   .content-wrapper.people {
     grid-template-columns: repeat(3, 1fr);
@@ -404,11 +411,19 @@ blockquote {
   .content-wrapper.people {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .search-result {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 500px) {
   .content-wrapper.people {
     grid-template-columns: 1fr;
+  }
+
+  .search-result {
+    grid-template-columns:  1fr;
   }
 
   .people-card {
