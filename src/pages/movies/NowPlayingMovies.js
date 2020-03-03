@@ -12,7 +12,7 @@ function NowPlayingMovies() {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `${API.name}/movie/now_playing?api_key=${API.key}&language=en-US&page=${page}`
+      `${API.name}/movie/now_playing?api_key=${API.key}&region=US&page=${page}`
     )
       .then(resp => resp.json())
       .then(resp => {

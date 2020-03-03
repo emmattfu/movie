@@ -20,12 +20,26 @@ function Movies() {
       });
   }, [page]);
 
+  const [win, setWin] = useState(window.innerWidth)
+
+  useEffect(() => {
+    window.addEventListener('resize', onResizeHandle)
+
+    return () => {
+      window.removeEventListener('resize', onResizeHandle)
+    }
+  }, [win])
+
   for (let i = 1; i <= 100; i++) {
     pages.push(i)
   }
 
   function selectPage(event) {
     setPage(event.target.value)
+  }
+
+  function onResizeHandle() {
+    setWin(window.innerWidth)
   }
 
 
@@ -41,7 +55,7 @@ function Movies() {
             </select></div>
         </div>
         <div className="content-wrapper">
-          <MovieComponent movies={movies} loading={loading} api={api} />
+          <MovieComponent movies={movies} loading={loading} api={api} winWidth={win}/>
         </div>
       </div>
     </>

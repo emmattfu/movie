@@ -1,81 +1,22 @@
 import React from "react";
 import "./MovieComponent.css";
-import {NavLink} from 'react-router-dom'
+import BigWidthMovie from "./BigWithMovie";
+import SmallWidthMovie from "./SmallWidthMovie";
 
-function MovieComponent({ movies, loading, api }) {
+function MovieComponent({ movies, loading, winWidth }) {
   const moviesArr = Array.from(movies);
 
   if (loading) {
     return <h2>Loading...</h2>;
   }
-
-  console.log()
-
+  console.log(winWidth)
   return (
     <>
-      {window.innerWidth > 1000 ? 
-      moviesArr.map(movie => {
-        return (
-          <div className="movie-card" key={movie.id}>
-            <div className="movie-poster">
-              <NavLink to={`/movies/details/${movie.id}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                alt="poster"
-              />
-              </NavLink>
-            </div>
-            <div className="movie-info">
-              <p className="title">{movie.title}</p>
-              <p className="release-date">{new Date(movie.release_date).toLocaleDateString()}</p>
-              <p className="overview">{movie.overview.length < 350 ? movie.overview: movie.overview.slice(0,350) + '...'}</p>
-              
-            </div>
-          </div>
-        );
-      }) : moviesArr.map(movie => {
-        return (
-          <div className="movie-card" key={movie.id}>
-             <div className="movie-poster">
-              <NavLink to={`/movies/details/${movie.id}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
-                alt="poster"
-              />
-              </NavLink>
-            </div>
-            <div className="movie-info">
-              <p className="title">{movie.title}</p>
-              <p className="release-date">{new Date(movie.release_date).toLocaleDateString()}</p>
-            
-            </div>
-          </div>
-        )
-      })}
-
-
-
-
-      {/* {moviesArr.map(movie => {
-        return (
-          <div className="movie-card" key={movie.id}>
-            <div className="movie-poster">
-              <NavLink to={`/movies/details/${movie.id}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-                alt="poster"
-              />
-              </NavLink>
-            </div>
-            <div className="movie-info">
-              <p className="title">{movie.title}</p>
-              <p className="release-date">{new Date(movie.release_date).toLocaleDateString()}</p>
-              <p className="overview">{movie.overview.length < 350 ? movie.overview: movie.overview.slice(0,350) + '...'}</p>
-              
-            </div>
-          </div>
-        );
-      })} */}
+      {winWidth > 1000 ? (
+        <BigWidthMovie moviesArr={moviesArr} />
+      ) : (
+        <SmallWidthMovie movies={moviesArr} />
+      )}
     </>
   );
 }

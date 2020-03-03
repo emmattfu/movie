@@ -11,7 +11,7 @@ function UpcomingMovies() {
   const pages = [];
   useEffect(() => {
     setLoading(true);
-    fetch(`${API.name}/movie/upcoming?api_key=${API.key}&language=en-US&page=${page}`)
+    fetch(`${API.name}/movie/upcoming?api_key=${API.key}&region=US&page=${page}`)
       .then(resp => resp.json())
       .then(resp => {
         console.log(resp);

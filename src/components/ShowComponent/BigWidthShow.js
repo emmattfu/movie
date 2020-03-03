@@ -1,20 +1,16 @@
 import React from "react";
 import {NavLink} from 'react-router-dom';
 
-function ShowComponent({ show, loading }) {
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
-
+function BigWidthShow({ show }) {
   return (
     <>
       <div className="movie-card" key={show.id}>
         <div className="movie-poster">
           <NavLink to={`/shows/details/${show.id}`}>
-          <img
-            src={`https://image.tmdb.org/t/p/original/${show.poster_path}`}
-            alt="poster"
-          />
+            <img
+              src={`https://image.tmdb.org/t/p/original/${show.poster_path}`}
+              alt="poster"
+            />
           </NavLink>
         </div>
         <div className="movie-info">
@@ -31,4 +27,4 @@ function ShowComponent({ show, loading }) {
   );
 }
 
-export default ShowComponent;
+export default BigWidthShow;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../Api.js";
-import ShowComponent from "../../components/ShowComponent.js";
+import ShowComponent from "../../components/ShowComponent/ShowComponent.js";
 
 const API = api();
 
@@ -17,6 +17,20 @@ function Shows() {
         setShows(Array.from(resp.results));
       });
   }, [page]);
+
+  const [win, setWin] = useState(window.innerWidth)
+
+  useEffect(() => {
+    window.addEventListener('resize', onResizeHandle)
+
+    return () => {
+      window.removeEventListener('resize', onResizeHandle)
+    }
+  }, [win])
+
+  function onResizeHandle() {
+    setWin(window.innerWidth)
+  }
 
   for (let i = 1; i <= pagesNumber; i++) {
     pages.push(i);
@@ -46,7 +60,7 @@ function Shows() {
         </div>
         <div className="content-wrapper">
           {shows.map(show => (
-            <ShowComponent key={show.id} show={show}/>
+            <ShowComponent key={show.id} show={show} winWidth={win}/>
           ))}
         </div>
       </div>

@@ -9,7 +9,7 @@ function Home() {
   const [movies, setMovies] = useState("");
   useEffect(() => {
     fetch(
-      `${API.name}/movie/now_playing?api_key=${API.key}&language=en-US&page=1`
+      `${API.name}/movie/now_playing?api_key=${API.key}&region=US&page=1`
     )
       .then(resp => resp.json())
       .then(resp => {

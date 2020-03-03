@@ -48,3 +48,15 @@
         flex-direction: column;
     }
 }
+
+@media (max-width: 768px) {
+    .movie-card {
+        width: 100%;
+        align-self: center;
+    }
+
+    .movie-poster img {
+        width: 100%;
+    }
+
+}
