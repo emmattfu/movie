@@ -43,7 +43,7 @@ function People() {
             </select></div>
         </div>
         
-        <div className="content-wrapper">
+        <div className="content-wrapper people">
           {people.map(elem => {
             return (
               <div className="people-card" key={elem.id}>

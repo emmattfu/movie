@@ -75,15 +75,14 @@ blockquote {
   justify-content: space-between;
 }
 
-.people-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.content-wrapper.people {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
 }
 
 .people-card {
   box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
-  margin-bottom: 20px;
   width: 235px;
 }
 
@@ -394,7 +393,25 @@ blockquote {
   height: 365px;
 }
 
-@media (max-width: 768px) {
-
+@media (max-width: 991px) {
+  .content-wrapper.people {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
+
+@media (max-width: 768px) {
+  .content-wrapper.people {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .content-wrapper.people {
+    grid-template-columns: 1fr;
+  }
+
+  .people-card {
+    margin: 0 auto;
+  }
+}
