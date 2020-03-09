@@ -19,7 +19,7 @@ import People from "./pages/People.js";
 import PeopleDetails from "./pages/people/PeopleDetails.js"
 import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
 import FooterComponent from './components/FooterComponent/FooterComponent.js';
-import SearchComponent from "./components/SearchComponent.js";
+import SearchComponent from "./components/SearchComponent/SearchComponent.js";
 import Search from './pages/Search';
 import searchContext from './contexts/searchContext';
 import Other from "./components/Other";

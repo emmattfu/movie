@@ -1,6 +1,7 @@
 import React, {useState, useRef, useContext} from "react";
 import {Redirect} from 'react-router-dom';
-import searchContext from '../contexts/searchContext.js';
+import './SearchComponent.css';
+import searchContext from '../../contexts/searchContext';
 
 
 function SearchComponent() {
