@@ -195,6 +195,11 @@ blockquote {
   margin-top: 80px;
 }
 
+.no-cast-text {
+  margin-bottom: 200px;
+  font-weight: 500;
+}
+
 .cast-wrapper {
   display: flex;
   justify-content: space-between;
@@ -419,7 +424,13 @@ blockquote {
   }
 
   .cast-wrapper {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px
+  }
+
+  .cast-card {
+    width: 100%
   }
 
   .details-content {
@@ -444,5 +455,9 @@ blockquote {
 
   .cast {
     margin-top: 0;
+  }
+
+  .cast-wrapper {
+    grid-template-columns: 1fr 1fr;
   }
 }

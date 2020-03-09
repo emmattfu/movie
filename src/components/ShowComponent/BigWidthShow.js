@@ -2,6 +2,7 @@ import React from "react";
 import {NavLink} from 'react-router-dom';
 
 function BigWidthShow({ show }) {
+  console.log(show.overview.length)
   return (
     <>
       <div className="movie-card" key={show.id}>
@@ -17,9 +18,9 @@ function BigWidthShow({ show }) {
           <p className="title">{show.original_name}</p>
           <p className="release-date">{show.first_air_date}</p>
           <p className="overview">
-            {show.overview.length < 350
+            {show.overview.length < 150
               ? show.overview
-              : show.overview.slice(0, 350) + "..."}
+              : show.overview.slice(0, 150) + "..."}
           </p>
         </div>
       </div>
