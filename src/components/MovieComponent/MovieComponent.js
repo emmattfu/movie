@@ -9,7 +9,7 @@ function MovieComponent({ movies, loading, winWidth }) {
   if (loading) {
     return <h2>Loading...</h2>;
   }
-  console.log(winWidth)
+  
   return (
     <>
       {winWidth > 1000 ? (
