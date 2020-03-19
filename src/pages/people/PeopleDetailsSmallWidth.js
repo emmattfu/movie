@@ -55,9 +55,10 @@ function PeopleDetailsSmallWidth({ actor, social, movies }) {
           )}
         </div>
       </div>
-      
+
       <div className="people-details-aside">
-        <div className="people-details-personal-info">
+          <div className="container">
+          <div className="people-details-personal-info">
           <div>
             <h2>Personal Info </h2>
           </div>
@@ -111,6 +112,8 @@ function PeopleDetailsSmallWidth({ actor, social, movies }) {
             })}
           </ul>
         </div>
+          </div>
+       
       </div>
     </>
   );
