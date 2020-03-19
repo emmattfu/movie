@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import api from "../../Api.js";
-import PeopleDetailsBigWidth from './PeopleDetailsBigWidth';
-
+import PeopleDetailsBigWidth from "./PeopleDetailsBigWidth";
+import PeopleDetailsSmallWidth from "./PeopleDetailsSmallWidth";
+import WidthContext from "../../contexts/WidthContext";
 
 const API = api();
 
@@ -38,7 +39,7 @@ function PeopleDetails({ match }) {
       });
   }, [id]);
 
-
+  const [pageWidth] = useContext(WidthContext);
 
   if (!actor || !movies) {
     return (
@@ -48,9 +49,18 @@ function PeopleDetails({ match }) {
     );
   }
 
-
   return (
-    <PeopleDetailsBigWidth actor={actor} social={social} movies={movies}/>
+    <>
+      {pageWidth < 1000 ? (
+        <PeopleDetailsSmallWidth
+          actor={actor}
+          social={social}
+          movies={movies}
+        />
+      ) : (
+        <PeopleDetailsBigWidth actor={actor} social={social} movies={movies} />
+      )}
+    </>
   );
 }
 

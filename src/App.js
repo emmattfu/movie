@@ -33,7 +33,6 @@ function App() {
   useEffect(() => {
     function onResizeHandle() {
       setWidth(window.innerWidth)
-      console.log(width)
     }
 
     window.addEventListener('resize', onResizeHandle)
