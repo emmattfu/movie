@@ -1,20 +1,19 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useEffect} from 'react';
 import api from '../Api';
-import searchContext from '../contexts/searchContext';
 import SearchCardComponent from '../components/SearchCardComponent'
+import { useSelector } from 'react-redux';
 
 
 const API = api();
 
 function Search() {
-    const value = useContext(searchContext)[0]
     const [result, setResult] = useState(null)
-   
+    const value = useSelector(state => state.appReducer.search)
+    
     useEffect(() => {
         fetch(`${API.name}/search/multi?api_key=${API.key}&query=${value}&language=en-US&page=1&include_adult=false`)
         .then(resp => resp.json())
         .then(resp => {
-          console.log(resp)
           setResult(resp.results)
         })
       }, [value])

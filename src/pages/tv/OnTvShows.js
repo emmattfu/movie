@@ -1,23 +1,18 @@
-import React, {useState, useEffect} from 'react';
-import api from '../../Api.js';
+import React, {useState} from 'react';
 import ShowComponent from "../../components/ShowComponent/ShowComponent.js";
+import { useDispatch, useSelector } from "react-redux";
+import { getShows } from '../../redux/actions.js';
+import { ON_TV_SHOWS } from '../../redux/types.js';
 
-
-const API = api();
 
 function OnTVShows() {
-  const [onTVshows, setonTVshows] = useState([]);
+
+  const pagesNumber = useSelector(state => state.dataReducer.pageCount)
+  const dispatch = useDispatch()
   const [page, setPage] = useState(1)
-  const [pagesNumber, setPagesNumber] = useState(0);
-  const pages = [];
-  useEffect(() => {
-    fetch(`${API.name}/tv/on_the_air?api_key=${API.key}&language=en-US&page=${page}`)
-    .then(resp => resp.json())
-    .then(resp => {
-      setPagesNumber(resp.total_pages)
-      setonTVshows(Array.from(resp.results))
-    })
-  }, [page])
+  const pages = []
+ 
+  dispatch(getShows({page, type: ON_TV_SHOWS}))
 
   for (let i = 1; i <= pagesNumber; i++) {
     pages.push(i)
@@ -25,14 +20,7 @@ function OnTVShows() {
 
   function selectPage(event) {
     setPage(event.target.value)
-  }
-
-  if (!onTVshows) {
-    return (
-      <div className="container">
-        <h1>Loading...</h1>
-      </div>
-    )
+    dispatch(getShows({page, type: ON_TV_SHOWS}))
   }
 
     return (
@@ -46,7 +34,7 @@ function OnTVShows() {
                 </select></div>
             </div>
             <div className="content-wrapper">
-              {onTVshows.map(show => <ShowComponent key={show.id} show={show}/>)}
+              <ShowComponent />)
             </div>
           </div>
         </>

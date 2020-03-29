@@ -1,18 +1,19 @@
-import React, {useState, useRef, useContext} from "react";
+import React, {useState, useRef} from "react";
 import {Redirect} from 'react-router-dom';
 import './SearchComponent.css';
-import searchContext from '../../contexts/searchContext';
+import { useDispatch } from "react-redux";
+import { search } from "../../redux/actions";
 
 
 function SearchComponent() {
   const inputRef = useRef();
   const [count, setCount] = useState(0)
   const [redirect, setRedirect] = useState(false);
-  const setSearch = useContext(searchContext)[1]
+  const dispatch = useDispatch();
 
   function submitHandle(e) {
     e.preventDefault();
-    setSearch(inputRef.current.value)
+    dispatch(search(inputRef.current.value))
     setRedirect(true)
     setCount(count + 1)
   }

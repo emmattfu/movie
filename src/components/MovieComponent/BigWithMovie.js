@@ -1,10 +1,10 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 
-function BigWithMovie({moviesArr}) {
-    
+function BigWithMovie({movies}) {
+
     return(
-    moviesArr.map(movie => {
+        movies.map(movie => {
         return (
             <div className="movie-card" key={movie.id}>
             <div className="movie-poster">

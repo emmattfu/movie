@@ -1,23 +1,15 @@
-import React, { useState, useEffect } from "react";
-import api from "../../Api.js";
+import React, { useState } from "react";
 import MovieComponent from "../../components/MovieComponent/MovieComponent.js";
-
-const API = api();
+import { getMovies } from "../../redux/actions.js";
+import { useDispatch } from "react-redux";
+import { TOPRATED_MOVIES } from "../../redux/types.js";
 
 function TopRatedMovies() {
-  const [topMovies, setTopMovies] = useState("");
-  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch()
   const [page, setPage] = useState(1)
   const pages = [];
-  useEffect(() => {
-    setLoading(true);
-    fetch(`${API.name}/movie/top_rated?api_key=${API.key}&language=en-US&page=1`)
-      .then(resp => resp.json())
-      .then(resp => {
-        setTopMovies(resp.results);
-        setLoading(false);
-      });
-  }, [page]);
+  
+  dispatch(getMovies({page, type: TOPRATED_MOVIES}))
 
   for (let i = 1; i <= 100; i++) {
     pages.push(i)
@@ -25,6 +17,7 @@ function TopRatedMovies() {
 
   function selectPage(event) {
     setPage(event.target.value)
+    dispatch(getMovies({page, type: TOPRATED_MOVIES}))
   }
 
   return (
@@ -38,7 +31,7 @@ function TopRatedMovies() {
             </select></div>
         </div>
         <div className="content-wrapper">
-          <MovieComponent movies={topMovies} loading={loading} api={api} />
+          <MovieComponent  />
         </div>
       </div>
     </>

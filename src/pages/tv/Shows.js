@@ -1,36 +1,18 @@
-import React, { useState, useEffect } from "react";
-import api from "../../Api.js";
+import React, { useState } from "react";
 import ShowComponent from "../../components/ShowComponent/ShowComponent.js";
+import { useSelector, useDispatch } from "react-redux";
+import { getShows } from "../../redux/actions.js";
+import {POPULAR_SHOWS} from '../../redux/types'
 
-const API = api();
 
 function Shows() {
-  const [shows, setShows] = useState([]);
+
+  const pagesNumber = useSelector(state => state.dataReducer.pageCount)
+  const dispatch = useDispatch()
   const [page, setPage] = useState(1)
-  const [pagesNumber, setPagesNumber] = useState(0);
   const pages = [];
-  useEffect(() => {
-    fetch(`${API.name}/tv/popular?api_key=${API.key}&language=en-US&page=${page}`)
-      .then(resp => resp.json())
-      .then(resp => {
-        setPagesNumber(resp.total_pages)
-        setShows(Array.from(resp.results));
-      });
-  }, [page]);
 
-  const [win, setWin] = useState(window.innerWidth)
-
-  useEffect(() => {
-    window.addEventListener('resize', onResizeHandle)
-
-    return () => {
-      window.removeEventListener('resize', onResizeHandle)
-    }
-  }, [win])
-
-  function onResizeHandle() {
-    setWin(window.innerWidth)
-  }
+  dispatch(getShows({page, type: POPULAR_SHOWS}))
 
   for (let i = 1; i <= pagesNumber; i++) {
     pages.push(i);
@@ -38,15 +20,10 @@ function Shows() {
 
   function selectPage(event) {
     setPage(event.target.value);
+    dispatch(getShows({page, type: POPULAR_SHOWS}))
   }
 
-  if (!shows) {
-    return (
-      <div className="container">
-        <h1>Loading...</h1>
-      </div>
-    );
-  }
+
 
   return (
     <>
@@ -59,9 +36,7 @@ function Shows() {
               </select></div>
         </div>
         <div className="content-wrapper">
-          {shows.map(show => (
-            <ShowComponent key={show.id} show={show} winWidth={win}/>
-          ))}
+            <ShowComponent />
         </div>
       </div>
     </>

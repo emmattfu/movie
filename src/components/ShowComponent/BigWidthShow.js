@@ -2,7 +2,7 @@ import React from "react";
 import {NavLink} from 'react-router-dom';
 
 function BigWidthShow({ show }) {
-  console.log(show.overview.length)
+  
   return (
     <>
       <div className="movie-card" key={show.id}>

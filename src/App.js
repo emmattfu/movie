@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import "./App.css";
 import { BrowserRouter, Route, Switch  } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { getWidth } from "./redux/actions";
 
 import Home from "./pages/Home.js";
 import Movies from "./pages/movies/Movies.js";
@@ -22,29 +23,19 @@ import FooterComponent from './components/FooterComponent/FooterComponent.js';
 import SearchComponent from "./components/SearchComponent/SearchComponent.js";
 import Search from './pages/Search';
 import Other from "./components/Other";
-import SearchContext from './contexts/searchContext';
-import WidthContext from './contexts/WidthContext';
+
 
 
 function App() {
-  const [search, setSearch] = useState(null);
-  const [width, setWidth] = useState(window.innerWidth);
+  const dispatch = useDispatch()
 
-  useEffect(() => {
-    function onResizeHandle() {
-      setWidth(window.innerWidth)
-    }
+  function onResizeHandle() {
+   dispatch(getWidth(window.innerWidth))
+  }
 
-    window.addEventListener('resize', onResizeHandle)
-
-    return () => {
-      window.removeEventListener('resize', onResizeHandle)
-    }
-  }, [width])
+  window.addEventListener('resize', onResizeHandle)
 
   return (
-    <WidthContext.Provider value={[width, setWidth]}>
-      <SearchContext.Provider value={[search, setSearch]}>
       <BrowserRouter>
         <div className="App">
           <HeaderComponent />
@@ -75,8 +66,6 @@ function App() {
           
         </div>
       </BrowserRouter>
-      </SearchContext.Provider>
-    </WidthContext.Provider>
   );
 }
 
