@@ -1,8 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SocialComponent from "../../components/SocialComponent";
+import { useSelector } from "react-redux";
 
-function PeopleDetailsSmallWidth({ actor, social, movies }) {
+
+function PeopleDetailsSmallWidth() {
+
+  const actor = useSelector(state => state.dataReducer.person.person)
+  const social = useSelector(state => state.dataReducer.person.social)
+  const movies = useSelector(state => state.dataReducer.person.movies)
+
+    if (!actor || !movies) {
+      return(
+        <div className="container">
+          <h1>Loading...</h1>
+        </div>
+      )
+    }
+
+
   const filteredMovies = movies.cast
     .sort((prev, next) => prev.vote_count - next.vote_count)
     .reverse();
