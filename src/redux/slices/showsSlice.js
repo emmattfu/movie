@@ -4,6 +4,7 @@ const showsSlice = createSlice({
   name: "shows",
   initialState: {
     shows: [],
+    totalPages: 0,
     status: "idle",
     error: null,
   },
@@ -12,7 +13,8 @@ const showsSlice = createSlice({
       state.status = "loading";
     },
     getShowsSuccessed: (state, action) => {
-      state.shows = action.payload;
+      state.shows = action.payload.shows;
+      state.totalPages = action.payload.totalPages;
       state.status = "success";
     },
     getShowsError: (state, action) => {

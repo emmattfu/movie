@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { movieShape } from "../../shapes/shapes";
+import { pages } from "../../constants";
 
 const HomeMovies = ({ movies }) => {
-  console.log(movies);
   return (
     <div className='home-movies'>
       <div className='home-content-header'>
@@ -12,7 +14,7 @@ const HomeMovies = ({ movies }) => {
         {movies.map((el, i) => {
           return (
             <div className='home-poster' id={`id_${i + 3}`} key={el.id}>
-              <Link to={`/movies/details/${el.id}`}>
+              <Link to={`${pages.MOVIES.DEFAULT_PATH}/${el.id}`}>
                 <img
                   src={`https://image.tmdb.org/t/p/original/${el.backdrop_path}`}
                   alt='home-movie-poster'
@@ -28,3 +30,7 @@ const HomeMovies = ({ movies }) => {
 };
 
 export default HomeMovies;
+
+HomeMovies.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape(movieShape)),
+};

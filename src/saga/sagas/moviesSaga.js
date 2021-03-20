@@ -5,15 +5,18 @@ import {
   getMoviesSuccessed,
 } from "../../redux/slices/moviesSlice";
 import api from "../../Api";
+import { NOW_PLAYING_MOVIES } from "../../redux/types";
 
-function* onGetMovies() {
+function* onGetMovies({ payload = { page: 1, type: NOW_PLAYING_MOVIES } }) {
+  const { type, page } = payload;
+
   try {
     const resp = yield fetch(
-      `${api().name}/movie/now_playing?api_key=${api().key}&region=US&page=1`
+      `${api().name}/movie/${type}?api_key=${api().key}&region=US&page=${page}`
     );
     const movies = yield resp.json();
 
-    yield put(getMoviesSuccessed(movies));
+    yield put(getMoviesSuccessed(movies.results));
   } catch (error) {
     yield put(getMoviesError(error));
   }

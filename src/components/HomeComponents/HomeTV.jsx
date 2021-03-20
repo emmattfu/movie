@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { showShape } from "../../shapes/shapes";
+import { pages } from "../../constants";
 
 const HomeTV = ({ shows }) => {
   return (
@@ -11,7 +14,7 @@ const HomeTV = ({ shows }) => {
         {shows.map((el, i) => {
           return (
             <div className='home-poster' key={el.id} id={`id_${i}`}>
-              <Link to={`/shows/details/${el.id}`}>
+              <Link to={`${pages.SHOWS.DEFAULT_PATH}/${el.id}`}>
                 <img
                   src={`https://image.tmdb.org/t/p/original/${el.backdrop_path}`}
                   alt='home-tv-poster'
@@ -27,3 +30,7 @@ const HomeTV = ({ shows }) => {
 };
 
 export default HomeTV;
+
+HomeTV.propTypes = {
+  shows: PropTypes.arrayOf(PropTypes.shape(showShape)),
+};

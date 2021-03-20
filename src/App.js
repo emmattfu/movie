@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getWidth } from "./redux/actions";
+import { getWidth } from "./redux/slices/appSlice";
 
 import Home from "./pages/Home.js";
 import Movies from "./pages/movies/Movies.js";

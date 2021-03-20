@@ -16,6 +16,6 @@ const appSlice = createSlice({
   },
 });
 
-export const { search, getWidtch } = appSlice.actions;
+export const { search, getWidth } = appSlice.actions;
 
 export default appSlice.reducer;

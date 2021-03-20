@@ -8,7 +8,7 @@ export const pages = {
     TOP_RATED: "/movies/top-rated",
     UPCOMING: "/movies/upcoming",
     NOW_PLAYING: "/movies/now-playing",
-    DETAILS: "/movies/now-playing",
+    DETAILS: "/movies/:id",
   },
   SHOWS: {
     DEFAULT_PATH: "/shows",
@@ -16,11 +16,11 @@ export const pages = {
     OnTV: "/shows/on-tv",
     AIRING_TODAY: "/shows/airing-today",
     TOP_RATED: "/shows/top-rated",
-    DETAILS: "/shows/now-playing",
+    DETAILS: "/shows/:id",
   },
   PEOPLE: {
     DEFAULT_PATH: "/people",
-    DETAILS: "/people/details/:id",
+    DETAILS: "/people/:id",
   },
   SEARCH: {
     DEFAULT_PATH: "/search",
