@@ -3,6 +3,7 @@ import createSagaMiddleware from "redux-saga";
 import rootSaga from "../saga/rootSaga";
 import appSlice from "./slices/appSlice";
 import moviesSlice from "./slices/moviesSlice";
+import peopleSlice from "./slices/peopleSlice";
 import showsSlice from "./slices/showsSlice";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -12,6 +13,7 @@ const store = configureStore({
     app: appSlice,
     movies: moviesSlice,
     shows: showsSlice,
+    people: peopleSlice,
   },
   middleware: [sagaMiddleware],
 });

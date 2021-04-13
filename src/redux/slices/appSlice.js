@@ -8,6 +8,7 @@ const appSlice = createSlice({
   },
   reducers: {
     search: (state, action) => {
+      console.log(action.payload);
       state.search = action.payload;
     },
     getWidth: (state, action) => {

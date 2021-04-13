@@ -19,15 +19,20 @@ export const showsTotalPagesSelector = createSelector(
 
 export const peopleSelector = createSelector(
   getState,
-  (state) => state.data.people
+  (state) => state.people.people
 );
 
 export const personSelector = createSelector(
   getState,
-  (state) => state.data.person
+  (state) => state.people.person
 );
 
 export const widthSelector = createSelector(
   getState,
   (state) => state.app.width
+);
+
+export const searchSelector = createSelector(
+  getState,
+  (state) => state.app.search
 );
