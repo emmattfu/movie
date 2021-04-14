@@ -24,7 +24,17 @@ export const peopleSelector = createSelector(
 
 export const personSelector = createSelector(
   getState,
-  (state) => state.people.person
+  (state) => state.person.person
+);
+
+export const personSocialSelector = createSelector(
+  getState,
+  (state) => state.person.social
+);
+
+export const personMoviesSelector = createSelector(
+  getState,
+  (state) => state.person.movies
 );
 
 export const widthSelector = createSelector(

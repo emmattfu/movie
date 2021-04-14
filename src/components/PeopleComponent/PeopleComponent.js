@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { peopleSelector } from "../../redux/selectors/selectors";
+import { pages } from "../../constants";
 
 function PeopleComponent() {
   const people = useSelector(peopleSelector);
@@ -20,7 +21,7 @@ function PeopleComponent() {
         return (
           <div className='people-card' key={elem.id}>
             <div className='people-poster'>
-              <NavLink to={`/people/details/${elem.id}`}>
+              <NavLink to={`${pages.PEOPLE.DEFAULT_PATH}/${elem.id}`}>
                 <img
                   className='people-img'
                   src={`https://image.tmdb.org/t/p/original/${elem.profile_path}`}
