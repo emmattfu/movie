@@ -1,44 +1,31 @@
-import React, {useState} from 'react';
+import React from "react";
 import ShowComponent from "../../components/ShowComponent/ShowComponent.js";
-import { useDispatch, useSelector } from "react-redux";
-import { getShows } from '../../redux/actions.js';
-import { AIRINT_TODAY_SHOWS } from '../../redux/types.js';
+import { AIRING_TODAY_SHOWS } from "../../redux/types.js";
+import useShows from "../../hooks/useShows";
 
 function AiringTodayShows() {
-
-  const pagesNumber = useSelector(state => state.dataReducer.pageCount)
-  const dispatch = useDispatch()
-  const [page, setPage] = useState(1)
-  const pages = [];
-  
-  dispatch(getShows({page, type: AIRINT_TODAY_SHOWS}))
-
-  for (let i = 1; i <= pagesNumber; i++) {
-    pages.push(i)
-  }
-
-  function selectPage(event) {
-    setPage(event.target.value)
-    dispatch(getShows({page, type: AIRINT_TODAY_SHOWS}))
-  }
-
+  const { pages, selectPage } = useShows({ type: AIRING_TODAY_SHOWS });
 
   return (
-      <>
-        <div className="container">
-          <div className="page-header">
+    <>
+      <div className='container'>
+        <div className='page-header'>
           <h1>Currently Airing TV Shows</h1>
-            <div>Page:  
-              <select name="page-number" onChange={selectPage}>
-                {pages.map(el => <option key={el}>{el}</option>)}
-              </select></div>
-            </div>
-          <div className="content-wrapper">
-            <ShowComponent />)
+          <div>
+            Page:
+            <select name='page-number' onChange={selectPage}>
+              {pages.map((el) => (
+                <option key={el}>{el}</option>
+              ))}
+            </select>
           </div>
         </div>
-      </>
-    );
+        <div className='content-wrapper'>
+          <ShowComponent />)
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default AiringTodayShows
+export default AiringTodayShows;
