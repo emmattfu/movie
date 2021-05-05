@@ -1,10 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { showShape } from "../../shapes/shapes";
 import { pages } from "../../constants";
+import { IShowsResult } from "../../types/types";
 
-const HomeTV = ({ shows }) => {
+interface HomeTVProps {
+  shows: IShowsResult[];
+}
+
+const HomeTV: FC<HomeTVProps> = ({ shows }) => {
   return (
     <div className='home-tv'>
       <div className='home-content-header'>
@@ -30,7 +33,3 @@ const HomeTV = ({ shows }) => {
 };
 
 export default HomeTV;
-
-HomeTV.propTypes = {
-  shows: PropTypes.arrayOf(PropTypes.shape(showShape)),
-};

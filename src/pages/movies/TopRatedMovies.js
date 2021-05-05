@@ -1,5 +1,5 @@
 import React from "react";
-import MovieComponent from "../../components/MovieComponent/MovieComponent.js";
+import MovieComponent from "../../components/MovieComponent/MovieComponent";
 import { TOPRATED_MOVIES } from "../../redux/types.js";
 import useMovies from "../../hooks/useMovies.js";
 

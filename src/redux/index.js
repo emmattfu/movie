@@ -5,6 +5,7 @@ import appSlice from "./slices/appSlice";
 import moviesSlice from "./slices/moviesSlice";
 import peopleSlice from "./slices/peopleSlice";
 import personSlice from "./slices/personSlice";
+import showDetailsSlice from "./slices/showDetailsSlice";
 import showsSlice from "./slices/showsSlice";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -16,6 +17,7 @@ const store = configureStore({
     shows: showsSlice,
     people: peopleSlice,
     person: personSlice,
+    showDetails: showDetailsSlice,
   },
   middleware: [sagaMiddleware],
 });

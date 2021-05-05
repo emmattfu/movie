@@ -17,6 +17,7 @@ function* onGetPeople(payload) {
 
     yield put(getPeopleSuccessed(people.results));
   } catch (error) {
+    console.log(error);
     yield put(getPeopleError(error));
   }
 }

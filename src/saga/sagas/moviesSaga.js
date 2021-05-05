@@ -15,9 +15,9 @@ function* onGetMovies({ payload = { page: 1, type: NOW_PLAYING_MOVIES } }) {
       `${api().name}/movie/${type}?api_key=${api().key}&region=US&page=${page}`
     );
     const movies = yield resp.json();
-
     yield put(getMoviesSuccessed(movies.results));
   } catch (error) {
+    console.log(error);
     yield put(getMoviesError(error));
   }
 }

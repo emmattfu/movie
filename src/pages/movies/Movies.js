@@ -1,7 +1,7 @@
 import React from "react";
-import MovieComponent from "../../components/MovieComponent/MovieComponent.js";
+import MovieComponent from "../../components/MovieComponent/MovieComponent";
 import { POPULAR_MOVIES } from "../../redux/types.js";
-import PageSelect from "../../components/PageSelect.jsx";
+import PageSelect from "../../components/PageSelect";
 import useMovies from "../../hooks/useMovies.js";
 
 function Movies() {

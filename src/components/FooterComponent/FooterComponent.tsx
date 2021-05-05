@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import "./FooterComponent.css";
 
-function FooterComponent() {
+const FooterComponent: FC = () => {
   return (
     <footer className='footer'>
       <div className='footer-iner'>
@@ -13,6 +13,6 @@ function FooterComponent() {
       </div>
     </footer>
   );
-}
+};
 
 export default FooterComponent;

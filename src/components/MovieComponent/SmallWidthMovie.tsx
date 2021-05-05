@@ -1,10 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
 import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
-import { movieShape } from "../../shapes/shapes";
 import { pages } from "../../constants";
+import { IMoviesResults } from "../../types/types";
 
-function SmallWidthMovie({ movies }) {
+interface SmallWithMovieProps {
+  movies: IMoviesResults[];
+}
+
+const SmallWidthMovie: FC<SmallWithMovieProps> = ({ movies }) => {
   return (
     <>
       {movies.map((movie) => {
@@ -29,10 +32,6 @@ function SmallWidthMovie({ movies }) {
       })}
     </>
   );
-}
+};
 
 export default SmallWidthMovie;
-
-SmallWidthMovie.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.shape(movieShape)),
-};

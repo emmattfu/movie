@@ -1,10 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { movieShape } from "../../shapes/shapes";
 import { pages } from "../../constants";
+import { IMoviesResults } from "../../types/types";
 
-const HomeMovies = ({ movies }) => {
+interface HemoMoviesProps {
+  movies: IMoviesResults[];
+}
+
+const HomeMovies: FC<HemoMoviesProps> = ({ movies }) => {
   return (
     <div className='home-movies'>
       <div className='home-content-header'>
@@ -30,7 +33,3 @@ const HomeMovies = ({ movies }) => {
 };
 
 export default HomeMovies;
-
-HomeMovies.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.shape(movieShape)),
-};

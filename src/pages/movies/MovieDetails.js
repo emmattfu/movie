@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import api from "../../Api.js";
-import CastComponent from "../../components/CastComponent.js";
-import MovieDetailsComponent from "../../components/MovieDetailsComponent.js";
-import BackgroundComponent from '../../components/BackgroundComponent.js';
+import CastComponent from "../../components/CastComponent";
+import MovieDetailsComponent from "../../components/MovieDetailsComponent";
+import BackgroundComponent from "../../components/BackgroundComponent";
 
 const API = api();
 let director, screenplay;
@@ -13,8 +13,8 @@ function MovieDetails({ match }) {
   const id = match.params.id;
   useEffect(() => {
     fetch(`${API.name}/movie/${id}?api_key=${API.key}&language=en-US`)
-      .then(resp => resp.json())
-      .then(resp => {
+      .then((resp) => resp.json())
+      .then((resp) => {
         setMovie(resp);
       });
   }, [id]);
@@ -22,8 +22,8 @@ function MovieDetails({ match }) {
   const [credits, setCredits] = useState(null);
   useEffect(() => {
     fetch(`${API.name}/movie/${id}/credits?api_key=${API.key}&language=en-US`)
-      .then(resp => resp.json())
-      .then(resp => {
+      .then((resp) => resp.json())
+      .then((resp) => {
         setCredits(resp);
         setCast(resp.cast.slice(0, 5));
       });
@@ -32,14 +32,14 @@ function MovieDetails({ match }) {
   const [accounts, setAccounts] = useState("");
   useEffect(() => {
     fetch(`${API.name}/movie/${id}/external_ids?api_key=${API.key}`)
-      .then(resp => resp.json())
-      .then(resp => {
+      .then((resp) => resp.json())
+      .then((resp) => {
         setAccounts(resp);
       });
   }, [id]);
 
   if (credits) {
-    credits.crew.forEach(el => {
+    credits.crew.forEach((el) => {
       if (el.job === "Director") director = el.name;
       if (el.job === "Screenplay") screenplay = el.name;
     });
@@ -47,7 +47,7 @@ function MovieDetails({ match }) {
 
   if (!movie || !credits) {
     return (
-      <div className="container">
+      <div className='container'>
         <h1>Loading...</h1>
       </div>
     );
@@ -55,14 +55,14 @@ function MovieDetails({ match }) {
 
   return (
     <>
-      <BackgroundComponent backdrop={movie.backdrop_path}/>
+      <BackgroundComponent backdrop={movie.backdrop_path} />
       <MovieDetailsComponent
         movie={movie}
         accounts={accounts}
         director={director}
         screenplay={screenplay}
       />
-      <CastComponent cast={cast} type="movie"/>
+      <CastComponent cast={cast} type='movie' />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { createSelector } from "@reduxjs/toolkit";
+import { IStore } from "../../types/types";
 
-const getState = (state) => state;
+const getState = (state: IStore) => state;
 
 export const moviesSelector = createSelector(
   getState,
@@ -45,4 +46,9 @@ export const widthSelector = createSelector(
 export const searchSelector = createSelector(
   getState,
   (state) => state.app.search
+);
+
+export const showDetailsSelector = createSelector(
+  getState,
+  (state) => state.showDetails
 );

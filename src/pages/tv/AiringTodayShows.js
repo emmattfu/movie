@@ -1,5 +1,5 @@
 import React from "react";
-import ShowComponent from "../../components/ShowComponent/ShowComponent.js";
+import ShowComponent from "../../components/ShowComponent/ShowComponent";
 import { AIRING_TODAY_SHOWS } from "../../redux/types.js";
 import useShows from "../../hooks/useShows";
 

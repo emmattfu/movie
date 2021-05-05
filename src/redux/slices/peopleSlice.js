@@ -4,7 +4,6 @@ const peopleSlice = createSlice({
   name: "people",
   initialState: {
     people: [],
-    person: [],
     status: "idle",
     error: null,
   },

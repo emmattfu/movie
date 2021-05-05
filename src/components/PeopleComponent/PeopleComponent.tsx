@@ -1,10 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { peopleSelector } from "../../redux/selectors/selectors";
 import { pages } from "../../constants";
+import { IKnownForMovie, IKnownForShow } from "../../types/types";
+import PeopleKnownForShowComponent from "../PeopleKnownForComponent/PeopleKnownForShowComponent";
+import PeopleKnownForMovieComponent from "../PeopleKnownForComponent/PeopleKnownForMovieComponent";
 
-function PeopleComponent() {
+const PeopleComponent: FC = () => {
   const people = useSelector(peopleSelector);
 
   if (!people.length) {
@@ -31,20 +34,23 @@ function PeopleComponent() {
             </div>
             <div className='people-info'>
               <p className='people-name'>{elem.name}</p>
+
               {elem.known_for.map((film, i) => {
-                return (
-                  <div key={i}>
-                    {!film.title || film.title.length < 28 ? (
-                      <p className='people-known-for'>
-                        {film.title || film.original_name}
-                      </p>
-                    ) : (
-                      <p className='people-known-for'>
-                        {film.title.slice(0, 28) + "..." || film.original_name}
-                      </p>
-                    )}
-                  </div>
-                );
+                if (film.media_type === "movie") {
+                  return (
+                    <PeopleKnownForMovieComponent
+                      key={i}
+                      film={film as IKnownForMovie}
+                    />
+                  );
+                } else {
+                  return (
+                    <PeopleKnownForShowComponent
+                      key={i}
+                      film={film as IKnownForShow}
+                    />
+                  );
+                }
               })}
             </div>
           </div>
@@ -52,6 +58,6 @@ function PeopleComponent() {
       })}
     </div>
   );
-}
+};
 
 export default PeopleComponent;

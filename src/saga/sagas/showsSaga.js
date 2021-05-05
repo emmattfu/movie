@@ -14,7 +14,6 @@ function* onGetShows({ payload = { type: ON_TV_SHOWS, page: 1 } }) {
       `${api().name}/tv/${type}?api_key=${api().key}&region=US&page=${page}`
     );
     const shows = yield resp.json();
-
     yield put(
       getShowsSuccessed({ shows: shows.results, totalPages: shows.total_pages })
     );

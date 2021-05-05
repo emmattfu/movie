@@ -1,10 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 import BigWidthShow from "./BigWidthShow";
 import SmallWidthShow from "./SmallWidthShow";
 import { useSelector } from "react-redux";
 import { showsSelector, widthSelector } from "../../redux/selectors/selectors";
 
-function ShowComponent() {
+export const ShowComponent: FC = () => {
   const shows = useSelector(showsSelector);
   const winWidth = useSelector(widthSelector);
 
@@ -27,6 +27,6 @@ function ShowComponent() {
       })}
     </>
   );
-}
+};
 
 export default ShowComponent;
