@@ -7,11 +7,11 @@ import {
 import api from "../../Api";
 
 function* onGetPeople(payload) {
-  const { page } = payload.payload;
+  const { type, page } = payload.payload;
 
   try {
     const resp = yield fetch(
-      `${api().name}/person/popular?api_key=${api().key}&region=US&page=${page}`
+      `${api().name}/person/${type}?api_key=${api().key}&region=US&page=${page}`
     );
     const people = yield resp.json();
 

@@ -52,3 +52,8 @@ export const showDetailsSelector = createSelector(
   getState,
   (state) => state.showDetails
 );
+
+export const movieDetailsSelector = createSelector(
+  getState,
+  (state) => state.movieDetails
+);

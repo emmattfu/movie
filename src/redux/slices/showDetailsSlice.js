@@ -10,7 +10,7 @@ const showDetailsSlice = createSlice({
     error: null,
   },
   reducers: {
-    getShowDetailsLoading: (state) => {
+    getShowDetailsLoading: (state, action) => {
       state.status = "loading";
     },
     getShowDetailsSuccessed: (state, action) => {
@@ -23,6 +23,12 @@ const showDetailsSlice = createSlice({
       state.status = "error";
       state.error = action.payload;
     },
+    clearShowDetails: (state) => {
+      state.status = "loading";
+      state.show = null;
+      state.accounts = null;
+      state.actors = null;
+    },
   },
 });
 
@@ -30,6 +36,7 @@ export const {
   getShowDetailsLoading,
   getShowDetailsSuccessed,
   getShowDetailsError,
+  clearShowDetails,
 } = showDetailsSlice.actions;
 
 export default showDetailsSlice.reducer;

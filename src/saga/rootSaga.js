@@ -1,4 +1,5 @@
 import { all } from "redux-saga/effects";
+import getMovieDetails from "./sagas/movieDetailsSaga";
 import getMovies from "./sagas/moviesSaga";
 import getPeople from "./sagas/peopleSaga";
 import getPersonInfo from "./sagas/personSaga";
@@ -12,5 +13,6 @@ export default function* rootSaga() {
     getPeople(),
     getPersonInfo(),
     getShowDetails(),
+    getMovieDetails(),
   ]);
 }

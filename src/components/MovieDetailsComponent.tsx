@@ -1,10 +1,14 @@
 import React, { FC } from "react";
-import { IMovieDetails } from "../types/types.js";
-import SocialComponent from "./SocialComponent.js";
+import {
+  IMovieDetails,
+  IMovieDetailsSocial,
+  IPersonSocial,
+} from "../types/types.js";
+import SocialComponent from "./SocialComponent";
 
 interface MovieDetailsComponentProps {
   movie: IMovieDetails;
-  accounts: string;
+  accounts: IMovieDetailsSocial;
   director: string;
   screenplay: string;
 }
@@ -15,7 +19,6 @@ const MovieDetailsComponent: FC<MovieDetailsComponentProps> = ({
   director,
   screenplay,
 }) => {
-  console.log(movie, accounts, director, screenplay);
   return (
     <div className='details'>
       <div className='container'>
@@ -52,7 +55,7 @@ const MovieDetailsComponent: FC<MovieDetailsComponentProps> = ({
 
             <div className='social'>
               <p className='details-header'>Social media</p>
-              <SocialComponent accounts={accounts} homepage={movie.homepage} />
+              <SocialComponent accounts={accounts} homepage={movie.homepage!} />
             </div>
           </div>
         </div>

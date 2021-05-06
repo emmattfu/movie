@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PeopleDetailsBigWidth from "./PeopleDetailsBigWidth";
 import PeopleDetailsSmallWidth from "./PeopleDetailsSmallWidth";
 import { useSelector, useDispatch } from "react-redux";
 import { widthSelector } from "../../redux/selectors/selectors";
 import { getPersonLoading } from "../../redux/slices/personSlice";
+import { useParams } from "react-router";
 
-function PeopleDetails({ match }) {
-  const id = match.params.id;
+function PeopleDetails() {
+  const id = useParams();
+
   const dispatch = useDispatch();
 
   const pageWidth = useSelector(widthSelector);
 
-  dispatch(getPersonLoading(id));
+  useEffect(() => {
+    dispatch(getPersonLoading(id));
+  }, [dispatch, id]);
 
   return (
     <>

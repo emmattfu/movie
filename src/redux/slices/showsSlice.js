@@ -9,7 +9,7 @@ const showsSlice = createSlice({
     error: null,
   },
   reducers: {
-    getShowsLoading: (state) => {
+    getShowsLoading: (state, action) => {
       state.status = "loading";
     },
     getShowsSuccessed: (state, action) => {

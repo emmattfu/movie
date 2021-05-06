@@ -10,7 +10,7 @@ const personSlice = createSlice({
     error: null,
   },
   reducers: {
-    getPersonLoading: (state) => {
+    getPersonLoading: (state, action) => {
       state.status = "loading";
     },
     getPersonSuccessed: (state, action) => {

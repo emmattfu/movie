@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "../saga/rootSaga";
 import appSlice from "./slices/appSlice";
+import movieDetailsSlice from "./slices/movieDetailsSlice";
 import moviesSlice from "./slices/moviesSlice";
 import peopleSlice from "./slices/peopleSlice";
 import personSlice from "./slices/personSlice";
@@ -18,6 +19,7 @@ const store = configureStore({
     people: peopleSlice,
     person: personSlice,
     showDetails: showDetailsSlice,
+    movieDetails: movieDetailsSlice,
   },
   middleware: [sagaMiddleware],
 });

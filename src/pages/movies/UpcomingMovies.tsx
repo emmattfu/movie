@@ -1,10 +1,10 @@
 import React from "react";
 import MovieComponent from "../../components/MovieComponent/MovieComponent";
-import { UPCOMING_MOVIES } from "../../redux/types.js";
-import useMovies from "../../hooks/useMovies.js";
+import { MOVIE, UPCOMING_MOVIES } from "../../redux/types.js";
+import useMovies from "../../hooks/useMovies";
 
-function UpcomingMovies() {
-  const { pages, selectPage } = useMovies({ type: UPCOMING_MOVIES });
+const UpcomingMovies = () => {
+  const { pages, selectPage } = useMovies(UPCOMING_MOVIES, MOVIE);
 
   return (
     <>
@@ -26,6 +26,6 @@ function UpcomingMovies() {
       </div>
     </>
   );
-}
+};
 
 export default UpcomingMovies;

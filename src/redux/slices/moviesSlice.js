@@ -8,7 +8,7 @@ const moviesSlice = createSlice({
     error: null,
   },
   reducers: {
-    getMoviesLoading: (state) => {
+    getMoviesLoading: (state, action) => {
       state.status = "loading";
     },
     getMoviesSuccessed: (state, action) => {

@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 interface PageSelectProps {
   pages: number[];
-  selectPage: () => void;
+  selectPage: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const PageSelect: FC<PageSelectProps> = ({ pages, selectPage }) => {

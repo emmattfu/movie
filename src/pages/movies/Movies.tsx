@@ -1,11 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 import MovieComponent from "../../components/MovieComponent/MovieComponent";
-import { POPULAR_MOVIES } from "../../redux/types.js";
+import { MOVIE, POPULAR_MOVIES } from "../../redux/types.js";
 import PageSelect from "../../components/PageSelect";
-import useMovies from "../../hooks/useMovies.js";
+import useMovies from "../../hooks/useMovies";
 
-function Movies() {
-  const { pages, selectPage } = useMovies({ type: POPULAR_MOVIES });
+const Movies: FC = () => {
+  const { pages, selectPage } = useMovies(POPULAR_MOVIES, MOVIE);
 
   return (
     <>
@@ -23,6 +23,6 @@ function Movies() {
       </div>
     </>
   );
-}
+};
 
 export default Movies;

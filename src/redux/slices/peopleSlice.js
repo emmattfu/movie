@@ -8,7 +8,7 @@ const peopleSlice = createSlice({
     error: null,
   },
   reducers: {
-    getPeopleLoading: (state) => {
+    getPeopleLoading: (state, action) => {
       state.status = "loading";
     },
     getPeopleSuccessed: (state, action) => {

@@ -20,12 +20,23 @@ export interface IStore {
   };
   showDetails: {
     show: IShowDetails | null;
-    accounts: IShowDetailsSocial | null;
+    accounts: IShowDetailsSocial;
     actors: {
       cast: ICast[];
       crew: ICrew[];
       id: number;
     } | null;
+    status: string;
+    error: string | null;
+  };
+  movieDetails: {
+    movie: IMovieDetails | null;
+    accounts: IMovieDetailsSocial;
+    credits: {
+      cast: ICast[];
+      crew: ICrew[];
+      id: number;
+    };
   };
 }
 
@@ -55,7 +66,7 @@ export interface IMoviesResults {
 
 export interface IMovieDetails {
   adult: boolean;
-  backdrop_path: string | null;
+  backdrop_path: string;
   belongs_to_collection: object | null;
   budget: number;
   genres: IGenre[];
@@ -79,6 +90,14 @@ export interface IMovieDetails {
   video: boolean;
   vote_average: number;
   vote_count: number;
+}
+
+export interface IMovieDetailsSocial {
+  facebook_id: string | null;
+  id: number;
+  imdb_id: string | null;
+  instagram_id: string | null;
+  twitter_id: string | null;
 }
 
 export interface ISpokenLang {
@@ -281,22 +300,16 @@ export interface ICast {
 
 export interface ICrew {
   adult: boolean;
-  backdrop_path: string | null;
   credit_id: string;
   department: string;
-  genre_ids: number[];
+  gender: number;
   id: number;
   job: string;
-  original_language: string;
-  original_title: string;
-  overview: string;
+  known_for_department: string;
+  name: string;
+  original_name: string;
   popularity: number;
-  poster_path: string | null;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
+  profile_path: string | null;
 }
 
 export interface ICredits {

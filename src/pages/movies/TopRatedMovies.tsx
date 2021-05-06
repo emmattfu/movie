@@ -1,17 +1,16 @@
 import React from "react";
 import MovieComponent from "../../components/MovieComponent/MovieComponent";
+import { MOVIE, TOPRATED_MOVIES } from "../../redux/types.js";
+import useMovies from "../../hooks/useMovies";
 
-import { NOW_PLAYING_MOVIES } from "../../redux/types.js";
-import useMovies from "../../hooks/useMovies.js";
-
-function NowPlayingMovies() {
-  const { pages, selectPage } = useMovies({ type: NOW_PLAYING_MOVIES });
+const TopRatedMovies = () => {
+  const { pages, selectPage } = useMovies(TOPRATED_MOVIES, MOVIE);
 
   return (
     <>
       <div className='container'>
         <div className='page-header'>
-          <h1>Now Playing</h1>
+          <h1>Top Movies</h1>
           <div>
             Page:
             <select name='page-number' onChange={selectPage}>
@@ -27,6 +26,6 @@ function NowPlayingMovies() {
       </div>
     </>
   );
-}
+};
 
-export default NowPlayingMovies;
+export default TopRatedMovies;

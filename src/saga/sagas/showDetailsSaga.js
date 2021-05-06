@@ -1,4 +1,4 @@
-import { put, takeEvery, all, call } from "@redux-saga/core/effects";
+import { put, all, call, debounce } from "@redux-saga/core/effects";
 import {
   getShowDetailsError,
   getShowDetailsLoading,
@@ -10,8 +10,6 @@ const API = api();
 
 function* onGetShowDetails(payload) {
   const id = payload.payload;
-
-  //   yield put(clearPersonInfo());
 
   try {
     const [show, accounts, actors] = yield all([
@@ -27,7 +25,7 @@ function* onGetShowDetails(payload) {
 }
 
 export default function* getShowDetails() {
-  yield takeEvery(getShowDetailsLoading, onGetShowDetails);
+  yield debounce(500, getShowDetailsLoading, onGetShowDetails);
 }
 
 function* onGetShow(id) {

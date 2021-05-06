@@ -7,6 +7,7 @@ import {
   personSelector,
   personSocialSelector,
 } from "../../redux/selectors/selectors";
+import { pages } from "../../constants";
 
 function PeopleDetailsSmallWidth() {
   const actor = useSelector(personSelector);
@@ -59,7 +60,7 @@ function PeopleDetailsSmallWidth() {
                 {filteredMovies.slice(0, 8).map((el) => {
                   return (
                     <div className='filmed-in-card' key={el.id}>
-                      <Link to={`/movies/details/${el.id}`}>
+                      <Link to={`${pages.MOVIES.DEFAULT_PATH}/${el.id}`}>
                         <img
                           src={`https://image.tmdb.org/t/p/original/${el.poster_path}`}
                           alt='filmed-in-movie'

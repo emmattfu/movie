@@ -1,12 +1,11 @@
 import React from "react";
 import ShowComponent from "../../components/ShowComponent/ShowComponent";
-import { POPULAR_SHOWS } from "../../redux/types";
-import useShows from "../../hooks/useShows";
+import { POPULAR_SHOWS, TV } from "../../redux/types";
+
+import useMovies from "../../hooks/useMovies";
 
 function Shows() {
-  const { pages, selectPage } = useShows({
-    type: POPULAR_SHOWS,
-  });
+  const { pages, selectPage } = useMovies(POPULAR_SHOWS, TV);
 
   return (
     <>

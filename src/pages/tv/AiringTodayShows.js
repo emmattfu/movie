@@ -1,10 +1,10 @@
 import React from "react";
 import ShowComponent from "../../components/ShowComponent/ShowComponent";
-import { AIRING_TODAY_SHOWS } from "../../redux/types.js";
-import useShows from "../../hooks/useShows";
+import { AIRING_TODAY_SHOWS, TV } from "../../redux/types.js";
+import useMovies from "../../hooks/useMovies";
 
 function AiringTodayShows() {
-  const { pages, selectPage } = useShows({ type: AIRING_TODAY_SHOWS });
+  const { pages, selectPage } = useMovies(AIRING_TODAY_SHOWS, TV);
 
   return (
     <>

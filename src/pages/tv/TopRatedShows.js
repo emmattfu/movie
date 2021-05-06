@@ -1,10 +1,10 @@
 import React from "react";
 import ShowComponent from "../../components/ShowComponent/ShowComponent";
-import { TOPRATED_SHOWS } from "../../redux/types";
-import useShows from "../../hooks/useShows";
+import { TOPRATED_SHOWS, TV } from "../../redux/types";
+import useMovies from "../../hooks/useMovies";
 
 function TopRatedShows() {
-  const { pages, selectPage } = useShows({ type: TOPRATED_SHOWS });
+  const { pages, selectPage } = useMovies(TOPRATED_SHOWS, TV);
 
   return (
     <>

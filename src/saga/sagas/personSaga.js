@@ -8,7 +8,7 @@ import { clearPersonInfo } from "../../redux/slices/personSlice";
 import api from "../../Api";
 
 function* onGetPersonInfo(payload) {
-  const id = payload.payload;
+  const { id } = payload.payload;
 
   yield put(clearPersonInfo());
 

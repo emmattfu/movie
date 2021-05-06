@@ -5,19 +5,19 @@ import { useDispatch } from "react-redux";
 import { getWidth } from "./redux/slices/appSlice";
 
 import Home from "./pages/Home.js";
-import Movies from "./pages/movies/Movies.js";
-import TopRatedMovies from "./pages/movies/TopRatedMovies.js";
-import UpcomingMovies from "./pages/movies/UpcomingMovies.js";
-import NowPlayingMovies from "./pages/movies/NowPlayingMovies.js";
-import MovieDetails from "./pages/movies/MovieDetails.js";
+import Movies from "./pages/movies/Movies";
+import TopRatedMovies from "./pages/movies/TopRatedMovies";
+import UpcomingMovies from "./pages/movies/UpcomingMovies";
+import NowPlayingMovies from "./pages/movies/NowPlayingMovies";
+import MovieDetails from "./pages/movies/MovieDetails";
 
 import Shows from "./pages/tv/Shows.js";
 import OnTVShows from "./pages/tv/OnTvShows.js";
 import AiringTodayShows from "./pages/tv/AiringTodayShows.js";
 import TopRatedShows from "./pages/tv/TopRatedShows.js";
-import ShowDetails from "./pages/tv/ShowDetails.js";
+import ShowDetails from "./pages/tv/ShowDetails";
 import People from "./pages/People.js";
-import PeopleDetails from "./pages/people/PeopleDetails.js";
+import PeopleDetails from "./pages/people/PeopleDetails";
 import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
 import FooterComponent from "./components/FooterComponent/FooterComponent";
 import SearchComponent from "./components/SearchComponent/SearchComponent";

@@ -1,10 +1,10 @@
 import React from "react";
 import ShowComponent from "../../components/ShowComponent/ShowComponent";
-import { ON_TV_SHOWS } from "../../redux/types.js";
-import useShows from "../../hooks/useShows";
+import { ON_TV_SHOWS, TV } from "../../redux/types.js";
+import useMovies from "../../hooks/useMovies";
 
 function OnTVShows() {
-  const { pages, selectPage } = useShows({ type: ON_TV_SHOWS });
+  const { pages, selectPage } = useMovies(ON_TV_SHOWS, TV);
 
   return (
     <>
