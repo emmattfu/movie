@@ -16,8 +16,6 @@ function MovieDetails() {
 
   const { movie, credits, accounts } = useSelector(movieDetailsSelector);
 
-  console.log(credits);
-
   if (credits) {
     credits.crew.forEach((el) => {
       if (el.job === "Director") director = el.name;

@@ -6,6 +6,7 @@ import movieDetailsSlice from "./slices/movieDetailsSlice";
 import moviesSlice from "./slices/moviesSlice";
 import peopleSlice from "./slices/peopleSlice";
 import personSlice from "./slices/personSlice";
+import searchSlice from "./slices/searchSlice";
 import showDetailsSlice from "./slices/showDetailsSlice";
 import showsSlice from "./slices/showsSlice";
 
@@ -20,6 +21,7 @@ const store = configureStore({
     person: personSlice,
     showDetails: showDetailsSlice,
     movieDetails: movieDetailsSlice,
+    searchResult: searchSlice,
   },
   middleware: [sagaMiddleware],
 });

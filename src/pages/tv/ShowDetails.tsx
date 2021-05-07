@@ -6,9 +6,9 @@ import { useParams } from "react-router";
 import useShowDetails from "../../hooks/useShowDetails";
 
 function ShowDetails() {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
 
-  const { show, accounts, actors } = useShowDetails(id);
+  const { show, accounts, actors } = useShowDetails(+id);
 
   if (!show || !accounts) {
     return (
@@ -20,9 +20,9 @@ function ShowDetails() {
 
   return (
     <>
-      <BackgroundComponent backdrop={show.backdrop_path} />
-      <ShowDetailsComponent show={show} accounts={accounts} />
-      <CastComponent cast={actors.cast} type='show' />
+      <BackgroundComponent backdrop={show.backdrop_path!} />
+      <ShowDetailsComponent />
+      <CastComponent cast={actors!.cast} type='show' />
     </>
   );
 }

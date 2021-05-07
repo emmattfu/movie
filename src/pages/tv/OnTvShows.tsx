@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import ShowComponent from "../../components/ShowComponent/ShowComponent";
-import { ON_TV_SHOWS, TV } from "../../redux/types.js";
+import { ON_TV_SHOWS, TV } from "../../redux/types";
 import useMovies from "../../hooks/useMovies";
 
-function OnTVShows() {
+const OnTVShows: FC = () => {
   const { pages, selectPage } = useMovies(ON_TV_SHOWS, TV);
 
   return (
@@ -26,6 +26,6 @@ function OnTVShows() {
       </div>
     </>
   );
-}
+};
 
 export default OnTVShows;

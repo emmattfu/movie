@@ -1,7 +1,7 @@
 import React from "react";
 import MovieComponent from "../../components/MovieComponent/MovieComponent";
 
-import { MOVIE, NOW_PLAYING_MOVIES } from "../../redux/types.js";
+import { MOVIE, NOW_PLAYING_MOVIES } from "../../redux/types";
 import useMovies from "../../hooks/useMovies";
 
 const NowPlayingMovies = () => {

@@ -1,6 +1,5 @@
 export interface IStore {
   app: {
-    search: null | IResponce;
     width: number;
   };
   movies: { movies: IMoviesResults[]; status: string; error: null | string };
@@ -37,6 +36,9 @@ export interface IStore {
       crew: ICrew[];
       id: number;
     };
+  };
+  searchResult: {
+    searchResult: null | (IKnownForMovie | IKnownForShow | IKnownForPeople)[];
   };
 }
 

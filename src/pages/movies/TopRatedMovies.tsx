@@ -1,6 +1,6 @@
 import React from "react";
 import MovieComponent from "../../components/MovieComponent/MovieComponent";
-import { MOVIE, TOPRATED_MOVIES } from "../../redux/types.js";
+import { MOVIE, TOPRATED_MOVIES } from "../../redux/types";
 import useMovies from "../../hooks/useMovies";
 
 const TopRatedMovies = () => {

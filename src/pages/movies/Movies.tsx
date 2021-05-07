@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import MovieComponent from "../../components/MovieComponent/MovieComponent";
-import { MOVIE, POPULAR_MOVIES } from "../../redux/types.js";
+import { MOVIE, POPULAR_MOVIES } from "../../redux/types";
 import PageSelect from "../../components/PageSelect";
 import useMovies from "../../hooks/useMovies";
 

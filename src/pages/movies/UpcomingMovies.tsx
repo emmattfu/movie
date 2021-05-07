@@ -1,6 +1,6 @@
 import React from "react";
 import MovieComponent from "../../components/MovieComponent/MovieComponent";
-import { MOVIE, UPCOMING_MOVIES } from "../../redux/types.js";
+import { MOVIE, UPCOMING_MOVIES } from "../../redux/types";
 import useMovies from "../../hooks/useMovies";
 
 const UpcomingMovies = () => {

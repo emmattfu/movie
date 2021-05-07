@@ -2,7 +2,7 @@ import React, { useCallback, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import "./SearchComponent.css";
 import { useDispatch } from "react-redux";
-import { search } from "../../redux/slices/appSlice";
+import { getSearchResultLoading } from "../../redux/slices/searchSlice";
 
 function SearchComponent() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -12,8 +12,9 @@ function SearchComponent() {
   const memoizedSubmitHandle = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      dispatch(search(inputRef?.current?.value));
-      history.push("/search");
+      dispatch(getSearchResultLoading(inputRef?.current?.value));
+      history.push(`/search?${inputRef?.current?.value}`);
+      inputRef!.current!.value = "";
     },
 
     [dispatch, history]

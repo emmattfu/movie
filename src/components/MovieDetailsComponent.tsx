@@ -1,9 +1,5 @@
 import React, { FC } from "react";
-import {
-  IMovieDetails,
-  IMovieDetailsSocial,
-  IPersonSocial,
-} from "../types/types.js";
+import { IMovieDetails, IMovieDetailsSocial } from "../types/types.js";
 import SocialComponent from "./SocialComponent";
 
 interface MovieDetailsComponentProps {

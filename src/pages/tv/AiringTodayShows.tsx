@@ -1,17 +1,16 @@
 import React from "react";
 import ShowComponent from "../../components/ShowComponent/ShowComponent";
-import { POPULAR_SHOWS, TV } from "../../redux/types";
-
+import { AIRING_TODAY_SHOWS, TV } from "../../redux/types";
 import useMovies from "../../hooks/useMovies";
 
-function Shows() {
-  const { pages, selectPage } = useMovies(POPULAR_SHOWS, TV);
+function AiringTodayShows() {
+  const { pages, selectPage } = useMovies(AIRING_TODAY_SHOWS, TV);
 
   return (
     <>
       <div className='container'>
         <div className='page-header'>
-          <h1>Shows</h1>
+          <h1>Currently Airing TV Shows</h1>
           <div>
             Page:
             <select name='page-number' onChange={selectPage}>
@@ -22,11 +21,11 @@ function Shows() {
           </div>
         </div>
         <div className='content-wrapper'>
-          <ShowComponent />
+          <ShowComponent />)
         </div>
       </div>
     </>
   );
 }
 
-export default Shows;
+export default AiringTodayShows;

@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
-import { ICast, ICredits, ICreditsDetails } from "../types/types";
+import { pages } from "../constants";
+import { ICast, ICredits, ICrew } from "../types/types";
 
-interface CastComponentProps {
-  cast: ICredits[] | ICast[];
-  type: string;
-}
+type CastComponentProps = { type: string } & {
+  cast: ICredits[] | ICast[] | ICrew[];
+};
 
 export const CastComponent: FC<CastComponentProps> = ({ cast, type }) => {
   return (
@@ -17,10 +17,10 @@ export const CastComponent: FC<CastComponentProps> = ({ cast, type }) => {
           </p>
           <div className='cast-wrapper'>
             {cast.length ? (
-              cast.slice(0, 5).map((el: ICreditsDetails | ICast) => {
+              cast.slice(0, 5).map((el: any) => {
                 return (
                   <div className='cast-card' key={el.id}>
-                    <Link to={`/people/details/${el.id}`}>
+                    <Link to={`${pages.PEOPLE.DEFAULT_PATH}/${el.id}`}>
                       <img
                         src={
                           el.profile_path

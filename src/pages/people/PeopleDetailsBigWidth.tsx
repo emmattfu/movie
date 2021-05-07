@@ -117,9 +117,7 @@ function PeopleDetailsBigWidth() {
                   {filteredMovies.slice(0, 8).map((el) => {
                     return (
                       <div className='filmed-in-card' key={el.id}>
-                        <Link
-                          to={`${pages.MOVIES.DEFAULT_PATH}/${el.id}${el.id}`}
-                        >
+                        <Link to={`${pages.MOVIES.DEFAULT_PATH}/${el.id}`}>
                           <img
                             src={`https://image.tmdb.org/t/p/original/${el.poster_path}`}
                             alt='filmed-in-movie'

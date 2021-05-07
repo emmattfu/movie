@@ -1,23 +1,24 @@
-import React, { useEffect } from "react";
+import React, { FC, useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { getMoviesLoading } from "../redux/slices/moviesSlice";
-import { getShowsLoading } from "../redux/slices/showsSlice";
-import { moviesSelector, showsSelector } from "../redux/selectors/selectors";
-import HomeTV from "../components/HomeComponents/HomeTV";
-import HomeMovies from "../components/HomeComponents/HomeMovies";
+import { getMoviesLoading } from "../../redux/slices/moviesSlice";
+import { getShowsLoading } from "../../redux/slices/showsSlice";
+import { moviesSelector, showsSelector } from "../../redux/selectors/selectors";
+import HomeTV from "../../components/HomeComponents/HomeTV";
+import HomeMovies from "../../components/HomeComponents/HomeMovies";
 
 import "./Home.css";
+import { NOW_PLAYING_MOVIES, ON_TV_SHOWS } from "../../redux/types";
 
-function Home() {
+const Home: FC = () => {
   const dispatch = useDispatch();
 
   const movies = useSelector(moviesSelector);
   const shows = useSelector(showsSelector);
 
   useEffect(() => {
-    dispatch(getMoviesLoading());
-    dispatch(getShowsLoading());
+    dispatch(getMoviesLoading({ page: 1, type: NOW_PLAYING_MOVIES }));
+    dispatch(getShowsLoading({ type: ON_TV_SHOWS, page: 1 }));
   }, [dispatch]);
 
   if (!shows || !movies) {
@@ -53,6 +54,6 @@ function Home() {
       </div>
     </>
   );
-}
+};
 
 export default Home;

@@ -45,7 +45,7 @@ export const widthSelector = createSelector(
 
 export const searchSelector = createSelector(
   getState,
-  (state) => state.app.search
+  (state) => state.searchResult.searchResult
 );
 
 export const showDetailsSelector = createSelector(

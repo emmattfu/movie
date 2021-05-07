@@ -4,19 +4,19 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getWidth } from "./redux/slices/appSlice";
 
-import Home from "./pages/Home.js";
+import Home from "./pages/home/Home";
 import Movies from "./pages/movies/Movies";
 import TopRatedMovies from "./pages/movies/TopRatedMovies";
 import UpcomingMovies from "./pages/movies/UpcomingMovies";
 import NowPlayingMovies from "./pages/movies/NowPlayingMovies";
 import MovieDetails from "./pages/movies/MovieDetails";
 
-import Shows from "./pages/tv/Shows.js";
-import OnTVShows from "./pages/tv/OnTvShows.js";
-import AiringTodayShows from "./pages/tv/AiringTodayShows.js";
-import TopRatedShows from "./pages/tv/TopRatedShows.js";
+import Shows from "./pages/tv/Shows";
+import OnTVShows from "./pages/tv/OnTvShows";
+import AiringTodayShows from "./pages/tv/AiringTodayShows";
+import TopRatedShows from "./pages/tv/TopRatedShows";
 import ShowDetails from "./pages/tv/ShowDetails";
-import People from "./pages/People.js";
+import People from "./pages/People";
 import PeopleDetails from "./pages/people/PeopleDetails";
 import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
 import FooterComponent from "./components/FooterComponent/FooterComponent";

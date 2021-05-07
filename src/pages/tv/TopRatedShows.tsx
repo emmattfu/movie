@@ -3,7 +3,7 @@ import ShowComponent from "../../components/ShowComponent/ShowComponent";
 import { TOPRATED_SHOWS, TV } from "../../redux/types";
 import useMovies from "../../hooks/useMovies";
 
-function TopRatedShows() {
+const TopRatedShows = () => {
   const { pages, selectPage } = useMovies(TOPRATED_SHOWS, TV);
 
   return (
@@ -26,6 +26,6 @@ function TopRatedShows() {
       </div>
     </>
   );
-}
+};
 
 export default TopRatedShows;

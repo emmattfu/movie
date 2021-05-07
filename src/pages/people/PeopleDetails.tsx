@@ -7,7 +7,7 @@ import { getPersonLoading } from "../../redux/slices/personSlice";
 import { useParams } from "react-router";
 
 function PeopleDetails() {
-  const id = useParams();
+  const { id } = useParams<{ id: string }>();
 
   const dispatch = useDispatch();
 
