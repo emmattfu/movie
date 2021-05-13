@@ -5,8 +5,7 @@ import {
   getPersonSuccessed,
 } from "../../redux/slices/personSlice";
 import { clearPersonInfo } from "../../redux/slices/personSlice";
-import api from "../../Api";
-import axios, { AxiosResponse } from "axios";
+import { fetchDataDetails } from "../../helpers/fetch";
 
 function* onGetPersonInfo(payload: {
   type: string;
@@ -27,30 +26,18 @@ function* onGetPersonInfo(payload: {
 }
 
 function* onGetPerson(id: string): Generator {
-  const resp = yield axios.get(
-    `${api().name}/person/${id}?api_key=${api().key}&language=en-US`
-  );
-  const person = yield (resp as AxiosResponse).data;
+  const person = yield call(fetchDataDetails, "person", id);
+
   return person;
 }
 
 function* onGetPersonSocial(id: string): Generator {
-  const resp = yield axios.get(
-    `${api().name}/person/${id}/external_ids?api_key=${
-      api().key
-    }&language=en-US`
-  );
-  const social = yield (resp as AxiosResponse).data;
+  const social = yield call(fetchDataDetails, "person", id, "external_ids");
   return social;
 }
 
 function* onGetPersonMovies(id: string): Generator {
-  const resp = yield axios.get(
-    `${api().name}/person/${id}/movie_credits?api_key=${
-      api().key
-    }&language=en-US`
-  );
-  const movies = yield (resp as AxiosResponse).data;
+  const movies = yield call(fetchDataDetails, "person", id, "movie_credits");
   return movies;
 }
 

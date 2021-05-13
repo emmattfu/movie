@@ -1,13 +1,10 @@
 import { put, call, debounce } from "@redux-saga/core/effects";
-import api from "../../Api";
 import {
   getMovieDetailsError,
   getMovieDetailsLoading,
   getMovieDetailsSuccessed,
 } from "../../redux/slices/movieDetailsSlice";
-import axios, { AxiosResponse } from "axios";
-
-const API = api();
+import { fetchDataDetails } from "../../helpers/fetch";
 
 function* onGetMovieDetails(payload: {
   type: string;
@@ -31,11 +28,7 @@ export default function* getMovieDetails() {
 
 function* onGetMovie(id: string): Generator {
   try {
-    const resp = yield axios.get(
-      `${API.name}/movie/${id}?api_key=${API.key}&language=en-US`
-    );
-
-    const movie = yield (resp as AxiosResponse).data;
+    const movie = yield call(fetchDataDetails, "movie", id);
 
     return movie;
   } catch (error) {
@@ -45,11 +38,8 @@ function* onGetMovie(id: string): Generator {
 
 function* onGetAccounts(id: string): Generator {
   try {
-    const resp = yield axios.get(
-      `${API.name}/movie/${id}/external_ids?api_key=${API.key}`
-    );
+    const accounts = yield call(fetchDataDetails, "movie", id, "external_ids");
 
-    const accounts = yield (resp as AxiosResponse).data;
     return accounts;
   } catch (error) {
     yield put(getMovieDetailsError(error));
@@ -58,11 +48,7 @@ function* onGetAccounts(id: string): Generator {
 
 function* onGetCredits(id: string): Generator {
   try {
-    const resp = yield axios.get(
-      `${API.name}/movie/${id}/credits?api_key=${API.key}&language=en-US`
-    );
-
-    const credits = yield (resp as AxiosResponse).data;
+    const credits = yield call(fetchDataDetails, "movie", id, "credits");
     return credits;
   } catch (error) {
     yield put(getMovieDetailsError(error));

@@ -4,10 +4,7 @@ import {
   getShowDetailsLoading,
   getShowDetailsSuccessed,
 } from "../../redux/slices/showDetailsSlice";
-import api from "../../Api";
-import axios, { AxiosResponse } from "axios";
-
-const API = api();
+import { fetchDataDetails } from "../../helpers/fetch";
 
 function* onGetShowDetails(payload: {
   type: string;
@@ -32,11 +29,7 @@ export default function* getShowDetails() {
 
 function* onGetShow(id: string): Generator {
   try {
-    const resp = yield axios.get(
-      `${API.name}/tv/${id}?api_key=${API.key}&language=en-US`
-    );
-
-    const show = yield (resp as AxiosResponse).data;
+    const show = yield call(fetchDataDetails, "tv", id);
     return show;
   } catch (error) {
     yield put(getShowDetailsError(error));
@@ -45,11 +38,7 @@ function* onGetShow(id: string): Generator {
 
 function* onGetAccounts(id: string): Generator {
   try {
-    const resp = yield axios.get(
-      `${API.name}/tv/${id}/external_ids?api_key=${API.key}&language=en-US`
-    );
-
-    const accounts = yield (resp as AxiosResponse).data;
+    const accounts = yield call(fetchDataDetails, "tv", id, "external_ids");
     return accounts;
   } catch (error) {
     yield put(getShowDetailsError(error));
@@ -58,10 +47,7 @@ function* onGetAccounts(id: string): Generator {
 
 function* onGetActors(id: string): Generator {
   try {
-    const resp = yield axios.get(
-      `${API.name}/tv/${id}/credits?api_key=${API.key}&language=en-US`
-    );
-    const actors = yield (resp as AxiosResponse).data;
+    const actors = yield call(fetchDataDetails, "tv", id, "credits");
     return actors;
   } catch (error) {
     yield put(getShowDetailsError(error));

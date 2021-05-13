@@ -1,11 +1,8 @@
 import { Dispatch } from "react";
-import api from "../Api";
 import { getMoviesLoading } from "../redux/slices/moviesSlice";
 import { getPeopleLoading } from "../redux/slices/peopleSlice";
 import { getShowsLoading } from "../redux/slices/showsSlice";
 import { MOVIE, PEOPLE, TV } from "../redux/types";
-import { IResponce } from "../types/types";
-import axios from "axios";
 
 export const getPages = (totalPages = 100) => {
   const pages = [];
@@ -34,15 +31,4 @@ export const chooseRequestTarget = (
   if (pageType === PEOPLE) {
     dispatch(getPeopleLoading({ page, type }));
   }
-};
-
-export const fetchMovies = async (
-  type: string,
-  page: number
-): Promise<IResponce> => {
-  const resp = await axios.get<IResponce>(
-    `${api().name}/movie/${type}?api_key=${api().key}&region=US&page=${page}`
-  );
-
-  return resp.data;
 };
