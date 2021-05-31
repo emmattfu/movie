@@ -1,0 +1,15 @@
+export const CHANGE_PAGE_MOVIES = "CHANGE_PAGE_MOVIES";
+export const CHANGE_PAGE_SHOWS = "CHANGE_PAGE_SHOWS";
+export const POPULAR_MOVIES = "popular";
+export const TOPRATED_MOVIES = "top_rated";
+export const UPCOMING_MOVIES = "upcoming";
+export const NOW_PLAYING_MOVIES = "now_playing";
+export const POPULAR_SHOWS = "popular";
+export const TOPRATED_SHOWS = "top_rated";
+export const ON_TV_SHOWS = "on_the_air";
+export const AIRING_TODAY_SHOWS = "airing_today";
+export const POPULAR_PEOPLE = "popular";
+export const CLEAR_PERSON_INFO = "CLEAR_PERSON_INFO";
+export const MOVIE = "MOVIE";
+export const TV = "TV";
+export const PEOPLE = "PEOPLE";
